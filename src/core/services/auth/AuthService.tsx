@@ -1,141 +1,136 @@
 "use client";
 
 import "reflect-metadata";
-import {
-	type User,
-	getUser as getUserAPI,
-	login as loginAPI,
-	logout as logoutAPI,
-	register as registerAPI,
-} from "@/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, type Observable, catchError, from, tap } from "rxjs";
 import { injectable } from "tsyringe";
 
+import {
+  type User,
+  getUser as getUserAPI,
+  login as loginAPI,
+  logout as logoutAPI,
+  register as registerAPI,
+} from "@/core";
+import next from "next";
+
 interface LoginCredentials {
-	email: string;
-	password: string;
+  email: string;
+  password: string;
 }
 
 interface SignUpCredentials {
-	email: string;
-	password: string;
-	firstName: string;
-	lastName: string;
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
 }
 
 interface Token {
-	accessToken: string;
+  accessToken: string;
 }
 
 @injectable()
 export class AuthService {
-	private tokenSubject = new BehaviorSubject<Token | null>(null);
-	public token = this.tokenSubject.asObservable();
+  private tokenSubject = new BehaviorSubject<Token | null>(null);
+  public token = this.tokenSubject.asObservable();
 
-	private userSubject = new BehaviorSubject<User | null>(null);
-	public user = this.userSubject.asObservable();
+  private userSubject = new BehaviorSubject<User | null>(null);
+  public user = this.userSubject.asObservable();
 
-	private authSubject = new BehaviorSubject<LoginCredentials | null>(null);
-	private signupSubject = new BehaviorSubject<SignUpCredentials | null>(null);
+  private authSubject = new BehaviorSubject<LoginCredentials | null>(null);
+  private signupSubject = new BehaviorSubject<SignUpCredentials | null>(null);
 
-	constructor() {
-		console.log("AuthService initialized");
-		this.initAuthSubscription();
-		this.initSignupSubscription();
-		this.initUserSubscription();
+  public signupObservable = this.signupSubject.asObservable();
 
-		if (typeof window !== "undefined") {
-			const token = sessionStorage.getItem("token");
-			if (token) {
-				this.tokenSubject.next({ accessToken: token });
-				this.getUser().catch((_e) => {
-					this.tokenSubject.next(null);
-				});
-			}
-		}
-	}
+  constructor() {
+    this.initUserSubscription();
+    if (typeof window !== "undefined") {
+      const token = sessionStorage.getItem("token");
+      if (token) {
+        this.tokenSubject.next({ accessToken: token });
+        this.getUser();
+      }
+    }
+  }
 
-	login(credentials: LoginCredentials) {
-		this.authSubject.next(credentials);
-	}
+  login(credentials: LoginCredentials) {
+    this.authSubject.next(credentials);
+  }
 
-	logout() {
-		this.logoutUser().then(() => {
-			this.authSubject.next(null);
-		});
-	}
+  signup(credentials: SignUpCredentials) {
+    this.signupSubject.next(credentials);
+  }
 
-	signup(credentials: SignUpCredentials) {
-		this.signupSubject.next(credentials);
-	}
+  logout() {
+    return from(logoutAPI()).pipe(
+      tap(() => {
+        this.clearSession();
+      }),
+      catchError((error) => {
+        throw error;
+      }),
+    );
+  }
 
-	private async logoutUser() {
-		try {
-			await logoutAPI();
-			this.clearSession();
-		} catch (_error) {
-			this.clearSession();
-		}
-	}
+  getUser() {
+    return from(getUserAPI()).pipe(
+      tap((user) => {
+        this.userSubject.next(user);
+      }),
+      catchError((error) => {
+        throw error;
+      }),
+    );
+  }
 
-	private async getUser() {
-		try {
-			const user = await getUserAPI();
-			this.userSubject.next(user);
-		} catch (_error) {
-			this.userSubject.next(null);
-		}
-	}
+  loginUser(credentials: LoginCredentials): Observable<void> {
+    return from(loginAPI(credentials)).pipe(
+      tap({
+        next: (token) => {
+          this.setToken(token);
+        },
+      }),
+      catchError((error) => {
+        throw error;
+      }),
+    );
+  }
 
-	private initAuthSubscription() {
-		this.authSubject.subscribe(async (credentials) => {
-			if (credentials) {
-				try {
-					const token = await loginAPI(credentials);
-					this.setToken(token);
-					await this.getUser();
-				} catch (_error) {
-					this.clearSession();
-				}
-			}
-		});
-	}
+  signupUser(credentials: SignUpCredentials): Observable<void> {
+    return from(registerAPI(credentials)).pipe(
+      tap({
+        next: () => {
+          this.signup(credentials);
+        },
+      }),
+      catchError((error) => {
+        throw error;
+      }),
+    );
+  }
 
-	private initSignupSubscription() {
-		this.signupSubject.subscribe(async (credentials) => {
-			if (credentials) {
-				try {
-					const user = await registerAPI(credentials);
-					this.userSubject.next(user);
-				} catch (_error) {
-					this.userSubject.next(null);
-				}
-			}
-		});
-	}
+  private initUserSubscription() {
+    this.tokenSubject.subscribe(async (token) => {
+      if (token) {
+        await this.getUser().subscribe();
+      } else {
+        this.userSubject.next(null);
+      }
+    });
+  }
 
-	private initUserSubscription() {
-		this.tokenSubject.subscribe(async (token) => {
-			if (token) {
-				await this.getUser();
-			} else {
-				this.userSubject.next(null);
-			}
-		});
-	}
+  private setToken(accessToken: string) {
+    this.tokenSubject.next({ accessToken });
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("token", accessToken);
+    }
+  }
 
-	private setToken(accessToken: string) {
-		this.tokenSubject.next({ accessToken });
-		if (typeof window !== "undefined") {
-			sessionStorage.setItem("token", accessToken);
-		}
-	}
-
-	private clearSession() {
-		this.tokenSubject.next(null);
-		this.userSubject.next(null);
-		if (typeof window !== "undefined") {
-			sessionStorage.removeItem("token");
-		}
-	}
+  private clearSession() {
+    this.tokenSubject.next(null);
+    this.userSubject.next(null);
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem("token");
+    }
+  }
 }

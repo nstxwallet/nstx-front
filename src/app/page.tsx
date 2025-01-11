@@ -8,31 +8,31 @@ import { Home } from "@/feautures";
 import { useRouter } from "next/navigation";
 
 export default function HomePage() {
-	const router = useRouter();
+  const router = useRouter();
 
-	const { user } = useAuth();
+  const { user } = useAuth();
 
-	const handleLogin = () => {
-		router.push("/auth/login");
-	};
-	const handleWallet = () => {
-		router.push("/wallet");
-	};
+  const handleLogin = () => {
+    router.push("/auth/login");
+  };
+  const handleWallet = () => {
+    router.push("/wallet");
+  };
 
-	const handleSupport = () => {
-		router.push("/support");
-	};
-	const handleSignUp = () => {
-		router.push("/auth/sign-up");
-	};
+  const handleSupport = () => {
+    router.push("/support");
+  };
+  const handleSignUp = () => {
+    router.push("/auth/sign-up");
+  };
 
-	return (
-		<Home
-			user={user}
-			handleLogin={handleLogin}
-			handleSupport={handleSupport}
-			handleSignUp={handleSignUp}
-			handleWallet={handleWallet}
-		/>
-	);
+  return (
+    <Home
+      user={user}
+      handleLogin={handleLogin}
+      handleSupport={handleSupport}
+      handleSignUp={handleSignUp}
+      handleWallet={handleWallet}
+    />
+  );
 }

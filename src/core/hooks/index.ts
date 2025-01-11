@@ -6,3 +6,4 @@ export * from "./useResolve";
 export * from "./useServices";
 export * from "./useTransactions";
 export * from "./useUserSettings";
+export * from "./useToast"; 

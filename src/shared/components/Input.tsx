@@ -1,46 +1,57 @@
-import type React from "react";
+import * as React from 'react'
+import { NumericFormat, NumericFormatProps } from 'react-number-format'
 
-interface InputProps {
-	id?: string;
-	fullWidth?: boolean;
-	name?: string;
-	className?: string;
-	error?: string;
-	value?: string;
-	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-	placeholder?: string;
-	type?: string;
-}
+import { cn } from '../utils'
 
-export const Input = ({
-	id,
-	name,
-	className = "",
-	value,
-	onChange,
-	placeholder,
-	fullWidth = false,
-	type = "text",
-	error,
-}: InputProps) => {
-	return (
-		<div className={`w-full ${fullWidth ? "w-full" : "w-auto"}`}>
-			<input
-				id={id}
-				name={name}
-				value={value}
-				onChange={onChange}
-				placeholder={placeholder}
-				type={type}
-				className={`rounded-lg border px-4 py-3 text-gray-700 shadow-sm transition ${
-					error
-						? "border-red-500 focus:border-red-500 focus:ring-red-300"
-						: "border-blue-300 focus:border-blue-500 focus:ring-blue-300"
-				} bg-zinc-800 hover:border-blue-400 focus:outline-none focus:ring-2 ${
-					fullWidth ? "w-full" : "w-auto"
-				} ${className}`}
-			/>
-			{error && <p className="mt-1 text-sm text-red-500">{error}</p>}
-		</div>
-	);
-};
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> { }
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, ...props }, ref) => {
+    return (
+      <input
+        type={type}
+        className={cn(
+          "flex h-10 w-full w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:cursor-not-allowed disabled:opacity-50",
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
+  },
+)
+Input.displayName = 'Input'
+
+export type NumberInputProps = Omit<NumericFormatProps, 'type'> &
+  Omit<InputProps, 'ref' | 'value' | 'defaultValue' | 'type' | 'onChange'> & {
+    defaultValue?: string | number
+    value?: string | number
+    decimalSeparator?: string
+  }
+
+const NumberInput = React.memo(
+  React.forwardRef<HTMLInputElement, NumberInputProps>(
+    ({ decimalScale = 9, allowNegative = false, onChange, ...rest }, ref) => {
+      return (
+        <NumericFormat
+          getInputRef={ref}
+          customInput={Input}
+          allowNegative={allowNegative}
+          onValueChange={({ value }) => {
+            onChange?.({
+              target: { value },
+            } as React.ChangeEvent<HTMLInputElement>)
+          }}
+          {...rest}
+          thousandSeparator=","
+          decimalSeparator="."
+          allowedDecimalSeparators={[',', '.']}
+          decimalScale={decimalScale}
+        />
+      )
+    },
+  ),
+)
+
+export { Input, NumberInput }

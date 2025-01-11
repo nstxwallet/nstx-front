@@ -1,72 +1,82 @@
-"use client";
-import React, { useCallback, useRef, useState } from "react";
-import { FaMinus, FaPlus } from "react-icons/fa";
+import * as Comp from "@radix-ui/react-accordion";
+import { ChevronDownIcon } from "@radix-ui/react-icons";
+import classNames from "classnames";
+import React from "react";
 
-interface ExpandableItem {
-	question: string;
-	answer: string;
-}
-
-interface ExpandableCardProps {
-	items: ExpandableItem[];
-	bgColor?: string;
-	textColor?: string;
-}
-
-export const Accordition = ({
-	items,
-	bgColor = "bg-zinc-800",
-	textColor = "text-gray-300",
-}: ExpandableCardProps) => {
-	const [openIndex, setOpenIndex] = useState<number | null>(null);
-	const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
-	const toggleFAQ = (index: number) => {
-		setOpenIndex(openIndex === index ? null : index);
-	};
-
-	const setRef = useCallback(
-		(index: number) => (el: HTMLDivElement | null) => {
-			contentRefs.current[index] = el;
-		},
-		[],
-	);
-
-	return (
-		<div>
-			{items.map((item, index) => {
-				const isOpen = openIndex === index;
-				return (
-					<div
-						key={item.question}
-						className={`${bgColor} p-4 hover:bg-teal-600 rounded-lg shadow-md mb-4 transition-colors duration-300 ease-in-out`}
-					>
-						<div
-							className="flex justify-between items-center cursor-pointer"
-							onClick={() => toggleFAQ(index)}
-						>
-							<h3 className={`text-lg ${textColor} font-semibold`}>
-								{item.question}
-							</h3>
-							{isOpen ? (
-								<FaMinus className="text-white" />
-							) : (
-								<FaPlus className="text-white" />
-							)}
-						</div>
-						<div
-							ref={setRef(index)}
-							style={{
-								maxHeight: isOpen
-									? `${contentRefs.current[index]?.scrollHeight}px`
-									: "0px",
-							}}
-							className={`mt-4 ${textColor} overflow-hidden transition-all duration-500 ease-in-out`}
-						>
-							<p>{item.answer}</p>
-						</div>
-					</div>
-				);
-			})}
-		</div>
-	);
+type AccordionItem = {
+  value: string;
+  title: string;
+  content: React.ReactNode | string;
 };
+
+interface AccordionProps {
+  items: AccordionItem[];
+}
+
+const Accordition = ({
+  items
+}: AccordionProps) => (
+  <Comp.Root
+    className="rounded-md shadow-[0_2px_10px] shadow-black/5"
+    type="single"
+    defaultValue="item-1"
+    collapsible
+  >
+    
+    {items.map((item) => (
+      <Comp.Item key={item.value} className="AccordionItem" value={item.value}>
+        <AccordionTrigger>{item.title}</AccordionTrigger>
+        <AccordionContent>{item.content}</AccordionContent>
+      </Comp.Item>
+    ))}
+  </Comp.Root>
+);
+
+const AccordionTrigger = React.forwardRef(
+  (
+    {
+      children,
+      className,
+      ...props
+    }: {
+      children: React.ReactNode;
+      className?: string;
+    },
+    forwardedRef,
+  ) => (
+    <Comp.Header className="AccordionHeader">
+      <Comp.Trigger
+        className={classNames("AccordionTrigger", className)}
+        {...props}
+        ref={forwardedRef}
+      >
+        {children}
+        <ChevronDownIcon className="AccordionChevron" aria-hidden />
+      </Comp.Trigger>
+    </Comp.Header>
+  ),
+);
+
+const AccordionContent = React.forwardRef(
+  (
+    {
+      children,
+      className,
+      ...props
+    }: {
+      children: React.ReactNode;
+      className?: string;
+    },
+    forwardedRef,
+  ) => (
+    <Comp.Content
+      className={classNames("AccordionContent", className)}
+      {...props}
+      ref={forwardedRef}
+    >
+      <div className="AccordionContentText">{children}</div>
+    </Comp.Content>
+  ),
+);
+
+export { AccordionTrigger, Accordition };

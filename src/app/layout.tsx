@@ -6,24 +6,24 @@ import "./globals.css";
 import { Layout } from "@/shared";
 
 const inter = Inter({
-	subsets: ["latin"],
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-	title: "NSTX",
-	description: "NSTX",
+  title: "NSTX",
+  description: "NSTX",
 };
 
 export default function RootLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-	return (
-		<html lang="en">
-			<body className={inter.className}>
-				<Layout>{children}</Layout>
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <Layout>{children}</Layout>
+      </body>
+    </html>
+  );
 }

@@ -1,38 +1,36 @@
 "use client";
 
 import "reflect-metadata";
-import type React from "react";
-import { useState } from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
+import React, { useState } from "react";
 
 import { ServicesProvider, useAuth } from "@/core";
-import { Header } from "@/shared";
+import { Container, Header, Loading, NotAllowed } from "@/shared";
+import { Theme } from "@radix-ui/themes";
 
 interface ClientLayoutProps {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export default function ClientLayout({ children }: ClientLayoutProps) {
-	const queryClient = new QueryClient();
-	const { user } = useAuth();
-	const [isLoading, _setIsLoading] = useState(false);
+  const { user } = useAuth();
+  const [isLoading] = useState(false);
 
-	if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return <Loading />;
+  }
 
-	if (!user) {
-		return (
-			<div className="text-center p-4 text-red-500">
-				<h2>You must be logged in to access this page</h2>
-			</div>
-		);
-	}
+  if (!user) {
+    return <NotAllowed />;
+  }
 
-	return (
-		<ServicesProvider>
-			<QueryClientProvider client={queryClient}>
-				<Header />
-				<div className="p-6">{children}</div>
-			</QueryClientProvider>
-		</ServicesProvider>
-	);
+  return (
+    <ServicesProvider>
+      <Theme>
+        <Header />
+        <Container>
+         <main>{children}</main>
+        </Container>
+      </Theme>
+    </ServicesProvider>
+  );
 }

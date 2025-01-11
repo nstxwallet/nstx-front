@@ -1,37 +1,58 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
-	"files": {
-		"ignore": ["build/", ".next/", "node_modules/"]
-	},
+	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
 	"organizeImports": {
 		"enabled": true
+	},
+	"files": {
+		"ignore": [
+			"node_modules",
+			"dist",
+			"out",
+			"build",
+			"public",
+			"tsconfig.*"
+		]
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
+			"suspicious": {
+				"noConsoleLog": "warn",
+				"noEmptyInterface": "off",
+				"noArrayIndexKey": "warn"
+			},
 			"recommended": true,
-			"a11y": {
-				"recommended": false
-			},
-			"complexity": {
-				"recommended": true
-			},
 			"correctness": {
-				"recommended": true,
-				"noUnusedVariables": "error"
-			},
-			"performance": {
-				"recommended": true
-			},
-			"security": {
-				"recommended": true
+				"noUnusedVariables": "warn",
+				"useExhaustiveDependencies": "warn"
 			},
 			"style": {
-				"recommended": true
+				"useBlockStatements": "error",
+				"noNonNullAssertion": "off"
 			},
-			"suspicious": {
-				"recommended": true
+			"performance": {
+				"noDelete": "off"
 			}
 		}
+	},
+		"javascript": {
+			"parser": {
+				"unsafeParameterDecoratorsEnabled": true
+			}
+		},
+	"formatter": {
+		"indentStyle": "space",
+		"indentWidth": 2,
+		"enabled": true,
+		"formatWithErrors": true,
+		"lineWidth": 100,
+		"ignore": [
+			"node_modules",
+			"dist",
+			"out",
+			"build",
+			"public",
+			"tsconfig.*"
+		]
 	}
 }

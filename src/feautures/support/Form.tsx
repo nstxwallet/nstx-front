@@ -2,7 +2,8 @@ import type { FormikProps } from "formik";
 import React from "react";
 import { FaGithub, FaInstagram, FaTelegram } from "react-icons/fa";
 
-import { Button, Container, Form, Input, Paper, Typography } from "@/shared";
+import { Button, Container, Form, Input, Paper, Typography , Accordition, Row } from "@/shared";   
+import { useRouter } from "next/navigation";
 
 interface SupportPageProps {
 	formik: FormikProps<{
@@ -12,19 +13,15 @@ interface SupportPageProps {
 		message: string;
 	}>;
 }
-
+ 
 export const SupportPage = ({ formik }: SupportPageProps) => {
-	return (
-		<Container className="space-y-12 py-8">
-			<header className="text-center space-y-2">
-				<Typography color="blue" variant="h3">
-					Welcome to Our Support Center
-				</Typography>
-				<Typography color="primary" variant="body1">
-					Were here to help with any questions or concerns you may have.
-				</Typography>
-			</header>
+  const router = useRouter();
 
+	return (
+		<Container className="space-y-8">
+        <Typography variant="h4" center>
+          We are here to help you with any questions or problems you may have.
+        </Typography>
 			<Container className="flex justify-center items-center space-x-2 mt-6">
 				<Input
 					onChange={formik.handleChange}
@@ -37,7 +34,6 @@ export const SupportPage = ({ formik }: SupportPageProps) => {
 					Subscribe
 				</Button>
 			</Container>
-
 			<Container className="grid grid-cols-1 md:grid-cols-2 gap-8">
 				<div className="space-y-8">
 					<Paper space={3}>
@@ -48,7 +44,6 @@ export const SupportPage = ({ formik }: SupportPageProps) => {
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 								<Input
 									name="name"
-									fullWidth
 									onChange={formik.handleChange}
 									value={formik.values.name}
 									type="text"
@@ -58,7 +53,6 @@ export const SupportPage = ({ formik }: SupportPageProps) => {
 
 								<Input
 									name="email"
-									fullWidth
 									onChange={formik.handleChange}
 									value={formik.values.email}
 									type="email"
@@ -68,7 +62,6 @@ export const SupportPage = ({ formik }: SupportPageProps) => {
 
 								<Input
 									name="subject"
-									fullWidth
 									onChange={formik.handleChange}
 									value={formik.values.subject}
 									type="text"
@@ -79,7 +72,6 @@ export const SupportPage = ({ formik }: SupportPageProps) => {
 
 							<Input
 								name="message"
-								fullWidth
 								onChange={formik.handleChange}
 								value={formik.values.message}
 								type="textarea"
@@ -87,136 +79,105 @@ export const SupportPage = ({ formik }: SupportPageProps) => {
 								className="mt-4"
 							/>
 
-							<Button size="md" type="submit" variant="bordered">
+							<Button type="submit" variant="bordered">
 								Send Message
 							</Button>
 						</Form>
 					</Paper>
+          <div className="flex flex-row justify-around space-x-6  max-w-xs mx-auto">
+            <a
+              href="https://instagram.com/spelltaria"
+              className="text-gray-400 hover:text-blue-500"
+            >
+              <FaInstagram size={28} />
+            </a>
+            <a
+              href="https://t.me/spelltaria"
+              className="text-gray-400 hover:text-blue-500"
+            >
+              <FaTelegram size={28} />
+            </a>
+            <a
+              href="https://github.com/pasichmaria?tab=repositories"
+              className="text-gray-400 hover:text-blue-500"
+            >
+              <FaGithub size={28} />
+            </a>
+          </div>
 				</div>
-				<div className="space-y-4">
-					<Paper color="secondary" className="p-8">
-						<Typography color="primary" variant="h4">
-							Additional information
-						</Typography>
-						<Typography color="primary" variant="body2">
-							<a
-								href="mailto:pasichmaria@gmail.com"
-								className="text-blue-500 underline"
-							>
-								Email: pasichmaria@gmail.com
-							</a>
-						</Typography>
-						<Typography color="primary" variant="body2">
-							<a href="tel:+380997484505" className="text-blue-500 underline">
-								Phone: +( 380 ) 99-748-45-05
-							</a>
-						</Typography>
-						<Typography color="secondary" variant="body2">
-							Mon-Fri: 10 AM - 5 PM (GMT+2)
-						</Typography>
-					</Paper>
-					<div className="text-center space-y-4">
-						<Typography color="primary" variant="h6">
-							Follow us on Social Media
-						</Typography>
-						<div className="flex justify-center space-x-6">
-							<a
-								href="https://instagram.com"
-								className="text-gray-400 hover:text-blue-500"
-							>
-								<FaInstagram size={28} />
-							</a>
-							<a
-								href="https://t.me/Blueremelka"
-								className="text-gray-400 hover:text-blue-500"
-							>
-								<FaTelegram size={28} />
-							</a>
-							<a
-								href="https://t.me/Blueremelka"
-								className="text-gray-400 hover:text-blue-500"
-							>
-								<FaGithub size={28} />
-							</a>
-						</div>
-					</div>
-				</div>
+        <Accordition
+          items={[
+            {
+              value: "Password",
+              title: "How to reset your password?",
+              content:
+                
+              (
+                <>
+                  <Typography variant="body2">
+                    You can reset your password in the profile menu. You need to enter
+                    your email and we will send you a link to reset your password.
+                  </Typography>
+                  <Row className="mt-4">
+                  <Button fullWidth variant='outlined' onClick={() => router.push("/settings")}>
+                    Settings
+                  </Button>
+                    <Button fullWidth  onClick={() => router.push("/auth/forgot-password")}> 
+                    Reset password
+                  </Button>
+                  </Row>
+
+                </>
+              ),
+            },
+            {
+              value: "Security",
+              title: "Security",
+              content: "Security and settings can be changed in the profile menu.",
+            },
+            {
+              value: "Balances",
+              title: "Balances",
+              content: "Balances can be added in the profile menu.",
+            },
+            {
+              value: "Transactions",
+              title: "Transactions",
+              content:
+              (
+                <>
+                  <Typography variant="body2">
+                    You can see your transactions in the profile menu. You can see
+                    the transaction history, the amount of the transaction, and the
+                    date of the transaction.
+                  </Typography>
+                  <Button variant='outlined' fullWidth onClick={() => router.push("/settings")}>
+                    Transactions
+                  </Button>
+                </>
+              )
+              
+            },
+            {
+              value: "Verify your account",
+              title: "Verify your account",
+              content: (
+                <>
+                  <Typography variant="body2">
+                    You can verify your account in the profile menu. You need to upload
+                    your ID and a selfie with your ID.  We will verify your account within
+                    24 hours.
+                  </Typography>
+                  <Button variant='outlined' fullWidth onClick={() => router.push("/settings")}>
+                   Verify account
+                  </Button>
+                </>
+              ),
+            },
+          ]}
+        />
 			</Container>
 
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-				{[
-					"Security",
-					"Transactions",
-					"Verification",
-					"Payment",
-					"Delivery",
-					"Technical Support",
-				].map((category) => (
-					<div
-						key={category}
-						className="p-6 bg-zinc-800 rounded-lg shadow-md max-w-lg hover:bg-gray-700 transition-colors"
-					>
-						<Typography color="primary" variant="h4">
-							{category}
-						</Typography>
-						<Typography color="primary" variant="body1">
-							Find help and support articles for {category.toLowerCase()}.
-						</Typography>
-					</div>
-				))}
-			</div>
-
-			<Container className="space-y-12">
-				<div className="space-y-6">
-					{[
-						{
-							question: "How do I reset my password?",
-							answer:
-								"You can reset your password by clicking 'Forgot password' on the login page.",
-						},
-						{
-							question: "How can I contact support?",
-							answer:
-								"You can contact our support team via email or phone. See the contact section below.",
-						},
-						{
-							question: "How to verify my account?",
-							answer:
-								"Account verification can be done through the settings.ts page. Follow the instructions provided there.",
-						},
-						{
-							question: "What are the supported payment methods?",
-							answer:
-								"We support various payment methods including credit/debit cards, PayPal, and cryptocurrencies.",
-						},
-					].map(({ question, answer }) => (
-						<Paper
-							color="transparent"
-							key={question}
-							className="p-6 bg-zinc-800 rounded-lg shadow-md"
-						>
-							<Typography color="cyan" variant="h3">
-								{question}
-							</Typography>
-
-							<Typography variant="h6">{answer}</Typography>
-						</Paper>
-					))}
-				</div>
-			</Container>
-
-			<Container className="flex justify-center items-center space-x-2 mt-6">
-				<Input
-					onChange={formik.handleChange}
-					value={formik.values.email}
-					type="email"
-					placeholder="Enter your email"
-					className="rounded-r-none w-full"
-				/>
-				<Button size="md" variant="bordered" className="rounded-l-none">
-					Subscribe
-				</Button>
-			</Container>
 		</Container>
 	);
 };

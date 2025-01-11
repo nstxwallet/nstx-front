@@ -1,56 +1,57 @@
-import type React from "react";
+import { Typography } from "@/shared";
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
+import * as Comp from "@radix-ui/react-select";
+import React from "react";
 
-interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-	label?: string;
-	error?: string | undefined;
-	containerClassName?: string;
-	fullWidth?: boolean;
-	placeholder?: string;
+interface Option {
+  value: string;
+  label: string;
 }
 
-export const Select = ({
-	label,
-	error,
-	containerClassName = "",
-	className = "",
-	fullWidth = true,
-	placeholder,
-	children,
-	...props
-}: SelectProps) => {
-	return (
-		<div
-			className={`flex flex-col ${fullWidth ? "w-full" : "w-auto"} ${containerClassName}`}
-		>
-			{label && (
-				<label
-					htmlFor={props.id || props.name}
-					className="mb-2 text-sm font-medium text-gray-300"
-				>
-					{label}
-				</label>
-			)}
-			<select
-				className={`rounded-lg border px-6 py-1.5 text-gray-200 bg-zinc-800 transition-all duration-150 shadow-sm hover:border-blue-400 focus:border-blue-500 focus:ring-2 ${
-					error
-						? "border-red-500 focus:border-red-500 focus:ring-red-400"
-						: "border-gray-700 focus:border-blue-500 focus:ring-blue-400"
-				} ${fullWidth ? "w-full" : "w-auto"} ${className}`}
-				style={{
-					appearance: "none",
-					WebkitAppearance: "none",
-					MozAppearance: "none",
-				}}
-				{...props}
-			>
-				{placeholder && (
-					<option value="" disabled>
-						{placeholder}
-					</option>
-				)}
-				{children}
-			</select>
-			{error && <span className="mt-1 text-xs text-red-500">{error}</span>}
-		</div>
-	);
+interface SelectProps {
+  options: Option[];
+  placeholder?: string;
+  value: string;
+  onChange: (value: string) => void;
+  label?: string;
+}
+
+export const Select = ({ options, placeholder, value, onChange, label }: SelectProps) => {
+  return (
+    <div className="space-y-2">
+      {label && <Typography variant="body2" className="text-blue-500">{label}</Typography>}
+      <Comp.Root value={value} onValueChange={onChange}>
+        <Comp.Trigger className="inline-flex h-[40px] w-full items-center justify-between rounded-md border border-blue-600 bg-white p-2 text-[13px] leading-none text-teal-600 shadow-[0_2px_10px] shadow-black/10 outline-none hover:bg-blue-50 focus:shadow-[0_0_0_2px] focus:shadow-blue-500 data-[placeholder]:text-blue-400">
+          <Comp.Value placeholder={placeholder} />
+          <Comp.Icon className="text-blue-500">
+            <ChevronDownIcon />
+          </Comp.Icon>
+        </Comp.Trigger>
+        <Comp.Portal>
+          <Comp.Content className="overflow-hidden rounded-md border border-blue-600 bg-white shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]">
+            <Comp.ScrollUpButton className="flex h-[25px] cursor-default items-center justify-center bg-white text-teal-300">
+              <ChevronUpIcon />
+            </Comp.ScrollUpButton>
+            <Comp.Viewport className="bg-white p-[5px]">
+              {options?.map((option) => (
+                <Comp.Item
+                  key={option.value}
+                  value={option.value}
+                  className="relative flex h-[25px] select-none items-center rounded-[3px] pl-[25px] pr-[35px] text-[13px] leading-none text-black data-[disabled]:pointer-events-none data-[highlighted]:bg-blue-100 data-[disabled]:text-blue-300 data-[highlighted]:text-blue-900 data-[highlighted]:outline-none"
+                >
+                  <Comp.ItemText>{option.label}</Comp.ItemText>
+                  <Comp.ItemIndicator className="absolute left-0 inline-flex w-[25px] items-center justify-center">
+                    <CheckIcon />
+                  </Comp.ItemIndicator>
+                </Comp.Item>
+              ))}
+            </Comp.Viewport>
+            <Comp.ScrollDownButton className="flex h-[25px] cursor-default items-center justify-center bg-white text-blue-500">
+              <ChevronDownIcon />
+            </Comp.ScrollDownButton>
+          </Comp.Content>
+        </Comp.Portal>
+      </Comp.Root>
+    </div>
+  );
 };

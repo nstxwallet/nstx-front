@@ -6,20 +6,19 @@ import {
   getUserBalance as getBalanceAPI,
   getUserBalances as getBalancesAPI,
 } from "@/core";
-import {BehaviorSubject, type Observable, from } from "rxjs";
-import {switchMap, tap} from "rxjs/operators";
-import {inject, injectable} from "tsyringe";
+import { BehaviorSubject, type Observable, from } from "rxjs";
+import { switchMap, tap } from "rxjs/operators";
+import { inject, injectable } from "tsyringe";
 
 @injectable()
 export class BalanceService {
   private readonly balancesSubject = new BehaviorSubject<Balance[] | null>(null);
   public balances = this.balancesSubject.asObservable();
+  
   private readonly balanceSubject = new BehaviorSubject<Balance | null>(null);
   public balance = this.balanceSubject.asObservable();
 
-   constructor(
-      @inject("UserStream") private readonly _user$: Observable<User | null>
-  ) {
+  constructor(@inject("UserStream") private readonly _user$: Observable<User | null>) {
     this.initBalancesSubscription();
   }
 
@@ -27,39 +26,32 @@ export class BalanceService {
     return this.balancesSubject.asObservable();
   }
 
-
   private get userId(): string | null {
     let userId: string | null = null;
-    this._user$.subscribe(user => {
-      userId = user?.id || null;
-    }).unsubscribe();
+    this._user$
+      .subscribe((user) => {
+        userId = user?.id || null;
+      })
+      .unsubscribe();
     return userId;
   }
 
   fetchBalances(): Observable<Balance[]> {
-    return this.getBalancesAPI().pipe(
-        tap((balances) => this.updateBalances(balances))
-    );
+    return this.getBalancesAPI().pipe(tap((balances) => this.updateBalances(balances)));
   }
 
   fetchBalance(id: string): Observable<Balance> {
-    return this.getBalanceAPI(id).pipe(
-        tap((balance) => this.updateBalance(balance))
-    );
+    return this.getBalanceAPI(id).pipe(tap((balance) => this.updateBalance(balance)));
   }
 
   createBalance(currency: string): Observable<Balance> {
     return this.createBalanceAPI(currency).pipe(
-        tap((newBalance) => this.addNewBalance(newBalance))
+      tap((newBalance) => this.addNewBalance(newBalance)),
     );
   }
 
   private initBalancesSubscription(): void {
-    this._user$
-        .pipe(
-            switchMap((user) => (user ? this.fetchBalances() : from([])))
-        )
-        .subscribe();
+    this._user$.pipe(switchMap((user) => (user ? this.fetchBalances() : from([])))).subscribe();
   }
 
   private getBalancesAPI(): Observable<Balance[]> {
@@ -81,7 +73,7 @@ export class BalanceService {
   private createBalanceAPI(currency: string): Observable<Balance> {
     const userId = this.userId;
     if (userId) {
-      return from(createBalanceAPI({  currency }));
+      return from(createBalanceAPI({ currency }));
     }
     return from([]);
   }

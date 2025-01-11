@@ -1,6 +1,6 @@
 import { instance } from "@/core";
 
-export const getCoinMarketCup = async () => {
+export const getPrices = async () => {
   try {
     const response = await instance.get("/prices");
     return response.data;
