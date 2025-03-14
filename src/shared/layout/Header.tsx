@@ -1,166 +1,102 @@
 "use client";
-import type React from "react";
-import { useState } from "react";
-import { BiLineChart, BiShareAlt, BiTransfer, BiWallet } from "react-icons/bi";
-import {
-  MdLogout,
-  MdNotifications,
-  MdOutlineSupportAgent,
-  MdPerson,
-  MdSecurity,
-} from "react-icons/md";
-import { useRouter } from "next/navigation";
 
 import { useAuth, useToast } from "@/core";
-import { Button, DropdownDesktop, DropdownMobile, Typography, handleCopy } from "@/shared";
+import { Button, Dropdown, NstxLogo, Switch } from "@/shared";
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { AiOutlineTransaction } from "react-icons/ai";
+import { BiUser, BiWallet } from "react-icons/bi";
+import { MdLogout, MdOutlineSupportAgent, MdSettings } from "react-icons/md";
 
 export const Header = () => {
   const router = useRouter();
-  const { user, logout } = useAuth();
-  const { showToast } = useToast();
+  const { logout } = useAuth();
+  const { toast } = useToast();
 
-  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-  const [isActionsDropdownOpen, setIsActionsDropdownOpen] = useState(false);
-
-  const walletActions = [
-    {
-      icon: <BiWallet />,
-      label: "Transfer",
-      onClick: () => router.push("/wallet/create"),
-    },
-    {
-      icon: <BiTransfer />,
-      label: "Payments & Transfers",
-      onClick: () => router.push("/transactions/create"),
-    },
-    {
-      icon: <BiLineChart />,
-      label: "Create Balance",
-      onClick: () => router.push("/wallet/create"),
-    },
-  ];
-
-  const profileActions = [
-    {
-      icon: <MdPerson />,
-      label: "Profile",
-      onClick: () => router.push("/profile"),
-    },
-    {
-      icon: <MdSecurity />,
-      label: "Security",
-      onClick: () => router.push("/security"),
-    },
-    {
-      icon: <MdNotifications />,
-      label: "Notifications",
-      onClick: () => router.push("/notifications"),
-    },
-    {
-      icon: <BiShareAlt />,
-      label: "Referrals",
-      onClick: () => router.push("/referrals"),
-    },
-    {
-      icon: <MdOutlineSupportAgent />,
-      label: "Support",
-      onClick: () => router.push("/support"),
-    },
-    {
-      icon: <MdLogout />,
-      label: "Logout",
-      onClick: () => {
-        logout().subscribe({
-          next: () => {
-            showToast({
-              title: "Logout success",
-              description: "You have been logged out successfully",
-            });
-            router.push("/");
-          },
-          error: (error) => {
-            showToast({
-              title: "Logout failed",
-              description: error,
-            });
-          },
+  const handleLogout = () => {
+    logout().subscribe({
+      next: () => {
+        toast({
+          title: "Logout success",
+          description: "You have been logged out successfully",
+        });
+        router.push("/");
+      },
+      error: (error) => {
+        toast({
+          title: "Logout failed",
+          description: error,
         });
       },
+    });
+  };
+
+  const options = [
+    {
+      label: "Transactions",
+      onClick: () => router.push("/transactions"),
+      icon: <BiWallet />,
+    },
+    {
+      label: "NSTX",
+      onClick: () => router.push("/transactions/fund/nstx"),
+      icon: <ArrowTopRightIcon className="w-5 h-5 text-green" />,
+    },
+    {
+      label: "Settings",
+      onClick: () => router.push("/settings"),
+      icon: <MdSettings />,
+    },
+    { label: "Logout", onClick: handleLogout, icon: <MdLogout /> },
+    { label: "Terms", onClick: () => router.push("/terms") },
+    {
+      label: "Support",
+      onClick: () => router.push("/support"),
+      icon: <MdOutlineSupportAgent />,
     },
   ];
 
   return (
-    <>
-      <Button
-        variant="secondary"
-        fullWidth
-        className="rounded-none justify-center text-xs bg-zinc-800 border-none"
-        onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleCopy(e, user?.id)}
-      >
-        {user?.id || "No Id Available"}
-      </Button>
-      {user ? (
-        <header className="flex p-6 items-center justify-between w-full">
-          <div className="hidden lg:flex space-x-2">
-            <Button onClick={() => router.push("/wallet/create")}>Create Balance</Button>
-            <Button onClick={() => router.push("/wallet")}>Transactions</Button>
-            <Button
-              onClick={() =>
-                logout().subscribe({
-                  next: () => {
-                    showToast({
-                      title: "Logout success",
-                      description: "You have been logged out successfully",
-                    });
-                    router.push("/");
-                  },
-                  error: (error) => {
-                    showToast({
-                      title: "Logout failed",
-                      description: error,
-                    });
-                  },
-                })
-              }
-            >
-              Logout
-            </Button>
-          </div>
-          <div
-            className="relative hidden lg:block ml-auto"
-            onMouseEnter={() => setIsProfileDropdownOpen(true)}
-            onMouseLeave={() => setIsProfileDropdownOpen(false)}
-          >
-            <DropdownDesktop
-              isOpen={isProfileDropdownOpen}
-              options={profileActions}
-              buttonIcon={<MdPerson className="text-black" />}
-            />
-          </div>
+    <header className="flex items-center justify-between w-full bg-zinc-900 mt-8 mb-4 px-4 lg:px-8">
+      <nav className="hidden lg:flex items-center space-x-4">
+        <Button variant="transparent" onClick={() => router.push("/")}>
+          <NstxLogo />
+        </Button>
+        <Switch />
+        <Button
+          onClick={() => router.push("/transactions")}
+          icon={<AiOutlineTransaction className="text-white" />}
+          variant="transparent"
+        />
+        <Button
+          onClick={() => router.push("/transactions/fund/nstx")}
+          icon={<ArrowTopRightIcon className="text-white" />}
+          variant="transparent"
+        />
+        <Button
+          onClick={() => router.push("/settings")}
+          icon={<MdSettings className="text-white" />}
+          variant="transparent"
+        />
+      </nav>
 
-          <div
-            className="relative hidden lg:block ml-4"
-            onMouseEnter={() => setIsActionsDropdownOpen(true)}
-            onMouseLeave={() => setIsActionsDropdownOpen(false)}
-          >
-            <DropdownDesktop
-              isOpen={isActionsDropdownOpen}
-              options={walletActions}
-              buttonIcon={<BiWallet className="text-black" />}
-            />
-          </div>
-          <div className="flex ml-2 lg:hidden">
-            <DropdownMobile buttonIcon={<MdPerson />} options={profileActions} />
-          </div>
-          <div className="flex ml-2 lg:hidden">
-            <DropdownMobile buttonIcon={<BiWallet />} options={walletActions} />
-          </div>
-        </header>
-      ) : (
-        <Typography variant="h6" strong>
-          Not logged in
-        </Typography>
-      )}
-    </>
+      <nav className="flex items-center space-x-4">
+        <Button
+          variant="secondary"
+          onClick={() => router.push("/transactions/new-wallet")}
+          size="sm"
+        >
+          New balance
+        </Button>
+        <Button
+          onClick={() => router.push("/support")}
+          size="sm"
+          icon={<MdOutlineSupportAgent className="text-white" />}
+          variant="transparent"
+        />
+        <Dropdown options={options} iconDropdown={<BiUser className="text-white" />} />
+      </nav>
+    </header>
   );
 };

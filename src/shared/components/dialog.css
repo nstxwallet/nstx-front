@@ -1,0 +1,80 @@
+.DialogOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.DialogContent {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 90vw;
+  max-width: 420px;
+  transform: translate(-50%, -50%);
+  background: #121212;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: scaleIn 0.3s ease-in-out;
+}
+
+.DialogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.DialogTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.DialogClose {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.DialogClose:hover {
+  color: #fff;
+}
+
+.DialogDescription {
+  font-size: 14px;
+  color: #b0b0b0;
+  margin-top: 8px;
+}
+
+.DialogBody {
+  margin-top: 16px;
+}
+.DialogFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

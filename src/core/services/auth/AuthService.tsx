@@ -11,7 +11,6 @@ import {
   logout as logoutAPI,
   register as registerAPI,
 } from "@/core";
-import next from "next";
 
 interface LoginCredentials {
   email: string;
@@ -39,8 +38,6 @@ export class AuthService {
 
   private authSubject = new BehaviorSubject<LoginCredentials | null>(null);
   private signupSubject = new BehaviorSubject<SignUpCredentials | null>(null);
-
-  public signupObservable = this.signupSubject.asObservable();
 
   constructor() {
     this.initUserSubscription();
@@ -112,7 +109,7 @@ export class AuthService {
   private initUserSubscription() {
     this.tokenSubject.subscribe(async (token) => {
       if (token) {
-        await this.getUser().subscribe();
+        this.getUser().subscribe();
       } else {
         this.userSubject.next(null);
       }

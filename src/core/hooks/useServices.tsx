@@ -1,6 +1,7 @@
-import { ServicesContext } from "@/core";
-import { useContext } from "react";
 import "reflect-metadata";
+import { useContext } from "react";
+
+import { ServicesContext } from "@/core";
 
 export const useServices = () => {
   const context = useContext(ServicesContext);

@@ -1,27 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import type React from "react";
 import "./globals.css";
+import { Nunito } from "next/font/google";
 
 import { Layout } from "@/shared";
 
-const inter = Inter({
+const nunito = Nunito({
+  weight: "400",
+  style: "normal",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "NSTX",
-  description: "NSTX",
+  description: "Crypto currency exchange platform",
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={nunito.className}>
+      <body>
         <Layout>{children}</Layout>
       </body>
     </html>

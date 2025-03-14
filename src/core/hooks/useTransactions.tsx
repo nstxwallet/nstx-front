@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { catchError, finalize, firstValueFrom, throwError } from "rxjs";
+
 import { type Transaction, useObservable, useServices } from "@/core";
-import { useEffect } from "react";
 
 interface UseTransactionsProps {
   userId?: string;
@@ -10,42 +12,67 @@ interface UseTransactionsProps {
 export const useTransactions = ({ userId }: UseTransactionsProps) => {
   const { transactionService } = useServices();
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
   const transactions = useObservable<Transaction[] | null>(transactionService.transactions$);
   const transaction = useObservable<Transaction | null>(transactionService.transaction$);
 
   useEffect(() => {
-    if (userId) {
-      transactionService.fetchTransactions(userId).subscribe();
+    if (!userId) {
+      return;
     }
+    setIsLoading(true);
+    setIsError(false);
+    const subscription = transactionService.fetchTransactions(userId).subscribe({
+      error: (error) => {
+        if (error?.status !== 500) {
+          setIsError(true);
+        }
+      },
+      complete: () => setIsLoading(false),
+    });
+
+    return () => subscription.unsubscribe();
   }, [userId, transactionService]);
 
-  const createNSTXTransfer = ({
-    senderId,
-    receiverId,
-    amount,
-    currency,
-  }: {
-    senderId: string;
-    receiverId: string;
-    amount: number;
-    currency: string;
-  }) => {
-    transactionService.createTransfer(senderId, receiverId, amount, currency).subscribe();
+  const getTransactionById = async (id: string) => {
+    return firstValueFrom(
+      transactionService.fetchTransactionById(id).pipe(
+        finalize(() => setIsLoading(false)),
+        catchError((error) => {
+          if (error?.status !== 500) {
+            setIsError(true);
+          }
+          return throwError(() => error);
+        }),
+      ),
+    );
   };
 
-  const updateTransactionNote = (id: string, note: string) => {
-    transactionService.updateTransactionNote(id, note).subscribe();
-  };
-
-  const getTransactionById = (id: string) => {
-    transactionService.fetchTransactionById(id).subscribe();
+  const createNSTXTransfer = (
+    senderId: string,
+    receiverId: string,
+    amount: number,
+    currency: string,
+  ) => {
+    return transactionService.createTransfer(senderId, receiverId, amount, currency).pipe(
+      catchError((error) => {
+        if (error?.status !== 500) {
+          setIsError(true);
+        }
+        return throwError(() => error);
+      }),
+      finalize(() => setIsLoading(false)),
+    );
   };
 
   return {
     transactions,
     transaction,
+    isLoading,
+    isError,
     getTransactionById,
     createNSTXTransfer,
-    updateTransactionNote,
   };
 };

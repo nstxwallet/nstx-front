@@ -1,7 +1,7 @@
 "use client";
+import "reflect-metadata";
 import { useEffect, useState } from "react";
 import type { Observable } from "rxjs";
-import "reflect-metadata";
 
 export const useObservable = <T,>(observable: Observable<T>): T | undefined => {
   const [value, setValue] = useState<T | undefined>(undefined);

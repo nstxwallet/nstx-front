@@ -1,11 +1,12 @@
 "use client";
 
 import "reflect-metadata";
-import type React from "react";
+import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import { ServicesProvider } from "@/core"; 
-import { Theme } from "@radix-ui/themes"; 
+import { ServicesProvider } from "@/core";
+import { ThemeProvider } from "./ThemeProvider";
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -16,11 +17,9 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <ServicesProvider>
       <QueryClientProvider client={queryClient}>
-        <Theme>  
-          <div className="flex flex-col min-h-screen overflow-auto bg-zinc-900 w-full text-white">
-
-          {children}    </div>
-                  </Theme>
+        <ThemeProvider>
+          <div className="flex flex-col min-h-screen overflow-auto w-full">{children}</div>
+        </ThemeProvider>
       </QueryClientProvider>
     </ServicesProvider>
   );

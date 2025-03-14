@@ -13,16 +13,8 @@ interface AccordionProps {
   items: AccordionItem[];
 }
 
-const Accordition = ({
-  items
-}: AccordionProps) => (
-  <Comp.Root
-    className="rounded-md shadow-[0_2px_10px] shadow-black/5"
-    type="single"
-    defaultValue="item-1"
-    collapsible
-  >
-    
+const Accordition = ({ items }: AccordionProps) => (
+  <Comp.Root className="AccordionRoot" type="single" defaultValue="item-1" collapsible>
     {items.map((item) => (
       <Comp.Item key={item.value} className="AccordionItem" value={item.value}>
         <AccordionTrigger>{item.title}</AccordionTrigger>
@@ -34,14 +26,7 @@ const Accordition = ({
 
 const AccordionTrigger = React.forwardRef(
   (
-    {
-      children,
-      className,
-      ...props
-    }: {
-      children: React.ReactNode;
-      className?: string;
-    },
+    { children, className, ...props }: { children: React.ReactNode; className?: string },
     forwardedRef,
   ) => (
     <Comp.Header className="AccordionHeader">
@@ -59,14 +44,7 @@ const AccordionTrigger = React.forwardRef(
 
 const AccordionContent = React.forwardRef(
   (
-    {
-      children,
-      className,
-      ...props
-    }: {
-      children: React.ReactNode;
-      className?: string;
-    },
+    { children, className, ...props }: { children: React.ReactNode; className?: string },
     forwardedRef,
   ) => (
     <Comp.Content

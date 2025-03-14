@@ -1,42 +1,59 @@
 "use client";
 
-import { SettingsForm } from "@/feautures";
+import { useFormik } from "formik";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import * as Yup from "yup";
 
-const user = {
-  firstName: "Kiborg",
-  lastName: "Ybivtsya",
-  email: "kiborg@gmail.com",
-  phone: "+380997484505",
-  balances: [
-    {
-      id: "1",
-      userId: "1",
-      value: 1000,
-      currency: "USD",
-    },
-    {
-      id: "2",
-      userId: "1",
-      value: 2000,
-      currency: "EUR",
-    },
-  ],
-  employmentType: "Службовець/Працівник по найму",
-  experience: "8 років",
-  monthlyIncome: "12,000.00 ₴",
-  idCard: "85482051",
-  idRecord: "85482051519-31281",
-  validUntil: "28.10.2028",
-  issueDate: "28.10.1996",
-  issuingAuthority: "4174",
-  taxNumber: "417593921",
-  registration: "Київ соборний 245",
-  birthDate: "03.06.1981",
-  isVerified: true,
-};
+import { useAuth, useBalances, useToast } from "@/core";
+import { SettingsForm } from "@/feuture";
+import { Loading } from "@/shared";
 
 export default function Settings() {
+  const router = useRouter();
+  const { user } = useAuth();
+  const { toast } = useToast();
+  const { balances } = useBalances();
+
   const [open, setOpen] = useState(false);
-  return <SettingsForm user={user} open={open} setOpen={setOpen} />;
+
+  const formik = useFormik({
+    initialValues: {
+      firstName: user?.firstName || "",
+      lastName: user?.lastName || "",
+      email: user?.email || "",
+      phone: user?.phone || "",
+      employmentType: user?.employmentType || "",
+    },
+    validationSchema: Yup.object({
+      firstName: Yup.string().required("First Name is required"),
+      lastName: Yup.string().required("Last Name is required"),
+      email: Yup.string().email("Invalid email address").required("Email is required"),
+      phone: Yup.string().required("Phone number is required"),
+      employmentType: Yup.string().required("Employment Type is required"),
+    }),
+    onSubmit: () => {
+      toast({
+        title: "User information updated",
+        description: "Your changes have been saved successfully",
+      });
+      setOpen(false);
+    },
+  });
+
+  if (!user || !balances) {
+    return <Loading />;
+  }
+
+  return (
+    <SettingsForm
+      isVerified={user.isVerified}
+      router={router}
+      user={user}
+      balances={balances}
+      open={open}
+      setOpen={setOpen}
+      formik={formik}
+    />
+  );
 }

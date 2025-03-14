@@ -1,17 +1,11 @@
-import type { Balance } from "@/core";
-import { instance } from "@/core";
+import { type Balance, handleRequest, instance } from "@/core";
 
 export const getUserBalances = async ({
   userId,
 }: {
   userId: string;
 }): Promise<Balance[]> => {
-  const response = await instance.get("/balances", {
-    params: {
-      userId,
-    },
-  });
-  return response.data;
+  return handleRequest(instance.get("/balances", { params: { userId } }));
 };
 
 export const getUserBalance = async ({
@@ -21,17 +15,9 @@ export const getUserBalance = async ({
   userId: string;
   id: string;
 }): Promise<Balance> => {
-  const response = await instance.get(`/balances/${id}`, {
-    params: {
-      userId,
-    },
-  });
-  return response.data;
+  return handleRequest(instance.get(`/balances/${id}`, { params: { userId } }));
 };
 
 export const createUserBalance = async ({ currency }: { currency: string }) => {
-  const response = await instance.post("/balances/create", {
-    currency,
-  });
-  return response.data;
+  return handleRequest(instance.post("/balances/create", { currency }));
 };

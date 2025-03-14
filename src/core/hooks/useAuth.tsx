@@ -19,6 +19,5 @@ export const useAuth = () => {
   }) => {
     return authService.signupUser(values);
   };
-
   return { login, logout, signup, user };
 };

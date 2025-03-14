@@ -1,6 +1,4 @@
-
 PORT='DB_HOST='localhost' DB_PASSWORD='' // your postgress db password DATABASE='' // your postgress db name
-
 
 CLIENT_URL='http://127.0.0.1:8000'
 
@@ -40,4 +38,3 @@ Contributions to the project are welcomed and encouraged. Developers interested 
 Installation and Usage:
 
 Detailed instructions for installing and running the wallet application locally can be found in the project's documentation. Developers can follow the provided guidelines to set up the backend and frontend environments, configure API integration with Binance, and start using the application for managing their digital assets efficiently.
-

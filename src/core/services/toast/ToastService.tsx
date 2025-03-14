@@ -2,8 +2,8 @@ import { BehaviorSubject } from "rxjs";
 
 interface ToastState {
   open: boolean;
-  title: string;
-  description: string;
+  title?: string | JSX.Element | null | undefined | null;
+  description?: string | JSX.Element | null | undefined;
   actionText?: string;
   onActionClick?: () => void;
 }
@@ -17,11 +17,11 @@ export class ToastService {
 
   toastState$ = this.toastSubject.asObservable();
 
-  showToast(title: string, description: string, actionText?: string, onActionClick?: () => void) {
+  showToast(title?: string, description?: string, actionText?: string, onActionClick?: () => void) {
     this.toastSubject.next({
       open: true,
-      title,
-      description,
+      title: title ?? "",
+      description: description ?? "",
       actionText,
       onActionClick,
     });
