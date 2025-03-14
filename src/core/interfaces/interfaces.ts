@@ -4,15 +4,26 @@ export interface User {
   password: string;
   firstName?: string;
   lastName?: string;
+  phone?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+  isVerified: boolean;
+  balances: Balance[];
+  employmentType?: string;
+  experience?: string;
+  monthlyIncome?: string;
+  idCard?: string;
+  idRecord?: string;
+  taxNumber?: string;
 }
 
 export interface Transaction {
   id: string;
   userId: string;
-  status: string;
-  type: string;
-  amount: number;
-  currency: string;
+  status?: string;
+  type?: string;
+  amount?: number;
+  currency?: string;
   createdAt: string;
   updatedAt: string;
   note?: string;
@@ -27,27 +38,7 @@ export interface Balance {
   updatedAt?: Date;
 }
 
-export interface Currency {
-  id: string;
-  name: string;
-}
-
-export interface UserMock {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  balances: Balance[];
-  employmentType: string;
-  experience: string;
-  monthlyIncome: string;
-  idCard: string;
-  idRecord: string;
-  validUntil: string;
-  issueDate: string;
-  issuingAuthority: string;
-  taxNumber: string;
-  registration: string;
-  birthDate: string;
-  isVerified: boolean;
+export interface Price {
+  symbol: string;
+  price: number;
 }

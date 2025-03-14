@@ -1,8 +1,13 @@
 "use client";
 
-import { TermsForm } from "@/feautures";
+import { useRouter } from "next/navigation";
 import React from "react";
 
-export default function TermsAndConditions() {
-  return <TermsForm />;
+import { TermsForm } from "@/feuture";
+
+export default function Terms() {
+  const router = useRouter();
+  const handleBack = () => router.back();
+
+  return <TermsForm handleBack={handleBack} />;
 }

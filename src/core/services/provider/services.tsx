@@ -1,11 +1,13 @@
 "use client";
 
-import { AuthService } from "@/core/services/auth/AuthService";
-import { BalanceService } from "@/core/services/balance";
 import { container } from "tsyringe";
+import { AuthService } from "../auth";
+import { BalanceService } from "../balance";
 
 container.registerSingleton(AuthService, AuthService);
-container.register("UserStream", { useValue: container.resolve(AuthService).user });
+container.register("UserStream", {
+  useValue: container.resolve(AuthService).user,
+});
 container.registerSingleton(BalanceService, BalanceService);
 
 export { container };

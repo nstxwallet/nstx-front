@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="afd2f9e7-872f-4164-94c4-28798315876d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/terms/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/transactions/fund/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/transactions/new-wallet/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/api/binance.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/hooks/useBinance.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/mock/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/mock/mock.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/services/binance/BinancePricesService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/components/dialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/components/dropdown.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/components/layout/401.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/components/layout/loading.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/components/tabs.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/utils/balance.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/biome.json" beforeDir="false" afterPath="$PROJECT_DIR$/biome.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/forgot-password/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/forgot-password/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/reset-password/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/reset-password/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/auth/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/sign-up/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/settings/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/settings/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/support/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/support/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/terms/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/terms/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/transactions/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transactions/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/transactions/create/nstx/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transactions/withdraw/nstx/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/transactions/create/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/transactions/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transactions/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/transactions/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transactions/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/wallet/create/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/wallet/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/wallet/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/wallet/success/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/axios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api/balance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/balance.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api/coinMarketCap.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api/prices.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api/settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/settings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api/transactions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/transactions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/hooks/useAuth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/useAuth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/hooks/useBalances.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/useBalances.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/hooks/useCoinMarketCap.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/hooks/useToast.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/useToast.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/hooks/useTransactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/useTransactions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/interfaces/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/interfaces/interfaces.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/auth/AuthService.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/auth/AuthService.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/balance/BalanceService.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/balance/BalanceService.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/provider/ServicesProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/provider/ServicesProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/provider/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/provider/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/provider/services.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/provider/services.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/settings/UserSettingsService.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/settings/UserSettingsService.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/toast/ToastProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/toast/ToastProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/toast/ToastService.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/toast/ToastService.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/transactions/TransactionService.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/transactions/TransactionService.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/home/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/home/components/Hero.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/home/components/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/home/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/login/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/login/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/password/forgot-password/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/password/forgot-password/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/password/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/password/reset-password/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/password/reset-password/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/settings/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/settings/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/sign-up/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/sign-up/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/support/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/support/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/terms/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/terms/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/components/ConfirmTransaction.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/components/PaymentOptionCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/components/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/nstx/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/nstx/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/transaction/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/components/BalanceCards.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/components/BankCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/components/BankCardSlider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/components/NoBalances.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/components/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/create/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/create/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/success/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/success/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/assets/BinanceLogo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/binanceLogo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/assets/NstxLogo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/nstxLogo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/assets/PayPalLogo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/assets/farming-bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/farming-bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/assets/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Accordition.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Accordition.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Loading.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/NotAuthorized.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Select.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Select.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Typograhy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Typograhy.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/checkbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/checkbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/layout/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Grid.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Paper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/layout/Paper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/layout/Row.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Stack.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/layout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/navbar/NavbarDropdownDesktop.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/navbar/NavbarDropdownMobile.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/navbar/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/table/CoinMarketCapBar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/table/TransactionsList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/table/TransactionsTable.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/table/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/layout/ClientLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/layout/ClientLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/layout/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/layout/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/layout/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/layout/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/layout/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/layout/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/utils/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/utils/utils.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/utils/utils.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wallet-api/prisma/dbml/schema.dbml" beforeDir="false" afterPath="$PROJECT_DIR$/../wallet-api/prisma/dbml/schema.dbml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wallet-api/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/../wallet-api/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wallet-api/src/module/binance/BinanceExchangeService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../wallet-api/src/module/binance/BinanceExchangeService.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;pasichmaria&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/nstxwallet/nstx-front.git&quot;,
+    &quot;accountId&quot;: &quot;59aa1b92-c13e-48e6-ae96-65c1f83a6ece&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2sAb9gzxQzx1oSZuGXevqsEzQnf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;radix-components&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/spellta/nstx-front&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;npm.format.executor&quot;: &quot;Run&quot;,
+    &quot;npm.lint:fix.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/spellta/nstx-front/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/spellta/nstx-front/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/transactions/components" />
+      <recent name="$PROJECT_DIR$/src/app/support" />
+      <recent name="$PROJECT_DIR$/src/feautures/transactions/withdraw/nstx" />
+      <recent name="$PROJECT_DIR$/src/feautures/transactions/fund/p2p" />
+      <recent name="$PROJECT_DIR$/src/app/transactions/fund/qr" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/wallet/components" />
+      <recent name="$PROJECT_DIR$/src/pages/wallet/components/balance " />
+      <recent name="$PROJECT_DIR$/src/pages/transactions/components" />
+      <recent name="$PROJECT_DIR$/src/pages/transactions" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.format">
+    <configuration name="format" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="format" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint:fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint:fix" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.lint:fix" />
+        <item itemvalue="npm.format" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.25659.40" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="afd2f9e7-872f-4164-94c4-28798315876d" name="Changes" comment="" />
+      <created>1737901176899</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1737901176899</updated>
+      <workItem from="1737901177978" duration="101000" />
+      <workItem from="1738300489849" duration="1260000" />
+      <workItem from="1738305199321" duration="191150000" />
+      <workItem from="1740558378191" duration="62890000" />
+      <workItem from="1741235405120" duration="389000" />
+      <workItem from="1741443908840" duration="80000" />
+      <workItem from="1741444445877" duration="2186000" />
+      <workItem from="1741450289133" duration="1445000" />
+      <workItem from="1741452818640" duration="1124000" />
+      <workItem from="1741466970089" duration="600000" />
+      <workItem from="1741478255854" duration="111000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/pages/home/components/hero.tsx</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/shared/utils/balance.tsx</url>
+          <line>1</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/transactions/[id]/page.tsx</url>
+          <line>28</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

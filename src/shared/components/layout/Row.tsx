@@ -8,19 +8,15 @@ interface RowProps {
   gutter?: number;
 }
 
- const Row = ({
-  children,
-  className = "",
-  align = "center",
-  justify = "center",
-  gutter = 6,
-}: RowProps) => {
-  const alignClass = `items-${align}`;
-  const justifyClass = `justify-${justify}`;
-  const gapClass = `space-x-${gutter}`;
+const Row = ({ children, className = "", align, justify, gutter = 6 }: RowProps) => {
+  const alignClass = align ? `items-${align}` : "";
+  const justifyClass = justify ? `justify-${justify}` : "";
+  const gapClass = `gap-x-${gutter}`;
 
   return (
-    <div className={`flex ${alignClass} ${justifyClass} ${gapClass} ${className}`}>{children}</div>
+    <div className={`flex ${alignClass} ${justifyClass} ${gapClass} ${className}`.trim()}>
+      {children}
+    </div>
   );
 };
 

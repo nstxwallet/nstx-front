@@ -1,10 +1,11 @@
 "use client";
 
 import "reflect-metadata";
-import { confirmResetPassword, sendResetPassword } from "@/core";
 import { BehaviorSubject, type Observable, catchError, from } from "rxjs";
 import { tap } from "rxjs/operators";
 import { injectable } from "tsyringe";
+
+import { confirmResetPassword, sendResetPassword } from "@/core";
 
 interface RequestPasswordResetParams {
   email: string;

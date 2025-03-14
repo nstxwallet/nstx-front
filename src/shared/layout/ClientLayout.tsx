@@ -1,10 +1,12 @@
 "use client";
 
 import "reflect-metadata";
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 
 import { ServicesProvider, useAuth } from "@/core";
-import { Container, Header, Loading, NotAllowed } from "@/shared";
+import { UserIdBar } from "@/feuture";
+import { Footer, Header, Loading, NotAuthorized, ThemeProvider } from "@/shared";
 import { Theme } from "@radix-ui/themes";
 
 interface ClientLayoutProps {
@@ -18,19 +20,22 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
   if (isLoading) {
     return <Loading />;
   }
-
   if (!user) {
-    return <NotAllowed />;
+    return <NotAuthorized />;
   }
 
   return (
     <ServicesProvider>
-      <Theme>
-        <Header />
-        <Container>
-         <main>{children}</main>
-        </Container>
-      </Theme>
+      <ThemeProvider>
+        <Theme>
+          <UserIdBar id={user.id} />
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-1 xs:p-4 md:p-8 lg:p-12">{children}</main>
+            <Footer />
+          </div>
+        </Theme>
+      </ThemeProvider>
     </ServicesProvider>
   );
 }

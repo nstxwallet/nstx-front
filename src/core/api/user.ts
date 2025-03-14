@@ -47,7 +47,7 @@ export const getUser = async (): Promise<User> => {
       },
     });
     return response.data;
-  } catch (_error) {
-    throw new Error("Failed to get user");
+  } catch (error) {
+    throw new Error("Failed to get user", error);
   }
 };

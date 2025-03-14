@@ -29,3 +29,22 @@ instance.interceptors.request.use(
   },
   (error) => Promise.reject(error),
 );
+
+export const handleRequest = async <T>(request: Promise<{ data: T }>): Promise<T> => {
+  try {
+    const response = await request;
+    return response.data;
+  } catch (_err) {
+    throw new Error("Failed to fetch data");
+  }
+};
+
+export const handleError = (
+  error: { response: { data: { error: string; message: string } } } | null,
+  defaultErrorMessage: string,
+) => {
+  if (error?.response?.data) {
+    throw new Error(error.response.data.message);
+  }
+  throw new Error(defaultErrorMessage);
+};

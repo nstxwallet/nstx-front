@@ -1,13 +1,18 @@
 "use client";
-import { AuthService } from "@/core/services/auth/AuthService";
-import { BalanceService } from "@/core/services/balance";
-import { container } from "@/core/services/provider/services";
-import { Loading } from "@/shared/components";
+
 import React, { createContext, type FC, type ReactNode, useEffect, useState } from "react";
 import "reflect-metadata";
-import { TransactionService } from "@/core";
+import {
+  AuthService,
+  BalanceService,
+  ToastProvider,
+  ToastService,
+  TransactionService,
+} from "@/core";
+import { BinanceService } from "@/core/services/binance/BinancePricesService";
 import { UserSettingsService } from "@/core/services/settings";
-import { ToastProvider, ToastService } from "../toast";
+import { Loading } from "@/shared";
+import { container } from "tsyringe";
 
 interface Services {
   authService: AuthService;
@@ -15,6 +20,7 @@ interface Services {
   transactionService: TransactionService;
   userSettingsService: UserSettingsService;
   toastService: ToastService;
+  binanceService: BinanceService;
 }
 
 interface ServicesProviderProps {
@@ -34,6 +40,7 @@ export const ServicesProvider: FC<ServicesProviderProps> = ({ children }) => {
       const transactionService = container.resolve(TransactionService);
       const userSettingsService = container.resolve(UserSettingsService);
       const toastService = container.resolve(ToastService);
+      const binanceService = container.resolve(BinanceService);
 
       setServices({
         authService,
@@ -41,10 +48,11 @@ export const ServicesProvider: FC<ServicesProviderProps> = ({ children }) => {
         transactionService,
         userSettingsService,
         toastService,
+        binanceService,
       });
       setLoading(false);
     };
-    init();
+    init().then((r) => r);
   }, []);
 
   if (loading || !services) {

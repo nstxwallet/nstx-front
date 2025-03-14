@@ -1,4 +1,4 @@
 export * from "./layout";
 export * from "./components";
-export * from "./assets";
-export * from './utils'
+export * from "../public";
+export * from "./utils";

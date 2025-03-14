@@ -1,6 +1,6 @@
+"use client";
+import { ServicesContext, ToastComponent } from "@/core";
 import { type FC, type ReactNode, createContext, useContext, useEffect, useState } from "react";
-import { ServicesContext } from "../provider";
-import { ToastComponent } from "./Toast";
 
 interface ToastContextType {
   showToast: (

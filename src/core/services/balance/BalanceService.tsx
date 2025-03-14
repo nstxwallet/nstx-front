@@ -1,4 +1,8 @@
 import "reflect-metadata";
+import { BehaviorSubject, EMPTY, type Observable, from, of } from "rxjs";
+import { catchError, switchMap, tap } from "rxjs/operators";
+import { inject, injectable } from "tsyringe";
+
 import {
   type Balance,
   type User,
@@ -6,15 +10,12 @@ import {
   getUserBalance as getBalanceAPI,
   getUserBalances as getBalancesAPI,
 } from "@/core";
-import { BehaviorSubject, type Observable, from } from "rxjs";
-import { switchMap, tap } from "rxjs/operators";
-import { inject, injectable } from "tsyringe";
 
 @injectable()
 export class BalanceService {
-  private readonly balancesSubject = new BehaviorSubject<Balance[] | null>(null);
+  private readonly balancesSubject = new BehaviorSubject<Balance[]>([]);
   public balances = this.balancesSubject.asObservable();
-  
+
   private readonly balanceSubject = new BehaviorSubject<Balance | null>(null);
   public balance = this.balanceSubject.asObservable();
 
@@ -22,72 +23,61 @@ export class BalanceService {
     this.initBalancesSubscription();
   }
 
-  get balances$(): Observable<Balance[] | null> {
-    return this.balancesSubject.asObservable();
-  }
-
-  private get userId(): string | null {
-    let userId: string | null = null;
+  private initBalancesSubscription(): void {
     this._user$
-      .subscribe((user) => {
-        userId = user?.id || null;
-      })
-      .unsubscribe();
-    return userId;
+      .pipe(
+        switchMap((user) => {
+          if (!user) {
+            return of([]);
+          }
+          return from(getBalancesAPI({ userId: user.id })).pipe(
+            tap((balances) => this.balancesSubject.next(balances)),
+            catchError(() => of([])),
+          );
+        }),
+      )
+      .subscribe();
   }
 
-  fetchBalances(): Observable<Balance[]> {
-    return this.getBalancesAPI().pipe(tap((balances) => this.updateBalances(balances)));
+  fetchBalances(): void {
+    this._user$
+      .pipe(
+        switchMap((user) => {
+          if (!user) {
+            return of([]);
+          }
+          return from(getBalancesAPI({ userId: user.id })).pipe(
+            tap((balances) => this.balancesSubject.next(balances)),
+            catchError(() => of([])),
+          );
+        }),
+      )
+      .subscribe();
   }
 
-  fetchBalance(id: string): Observable<Balance> {
-    return this.getBalanceAPI(id).pipe(tap((balance) => this.updateBalance(balance)));
+  fetchBalance(id: string): void {
+    this._user$
+      .pipe(
+        switchMap((user) => {
+          if (!user) {
+            return of(null);
+          }
+          return from(getBalanceAPI({ userId: user.id, id })).pipe(
+            tap((balance) => this.balanceSubject.next(balance)),
+            catchError(() => of(null)),
+          );
+        }),
+      )
+      .subscribe();
   }
 
   createBalance(currency: string): Observable<Balance> {
-    return this.createBalanceAPI(currency).pipe(
-      tap((newBalance) => this.addNewBalance(newBalance)),
+    return from(createBalanceAPI({ currency }) as Promise<Balance>).pipe(
+      tap((newBalance: Balance) => {
+        const currentBalances = this.balancesSubject.getValue();
+        this.balancesSubject.next([...currentBalances, newBalance]);
+      }),
+      catchError(() => EMPTY),
     );
-  }
-
-  private initBalancesSubscription(): void {
-    this._user$.pipe(switchMap((user) => (user ? this.fetchBalances() : from([])))).subscribe();
-  }
-
-  private getBalancesAPI(): Observable<Balance[]> {
-    const userId = this.userId;
-    if (userId) {
-      return from(getBalancesAPI({ userId }));
-    }
-    return from([]);
-  }
-
-  private getBalanceAPI(id: string): Observable<Balance> {
-    const userId = this.userId;
-    if (userId) {
-      return from(getBalanceAPI({ userId, id }));
-    }
-    return from([]);
-  }
-
-  private createBalanceAPI(currency: string): Observable<Balance> {
-    const userId = this.userId;
-    if (userId) {
-      return from(createBalanceAPI({ currency }));
-    }
-    return from([]);
-  }
-
-  private updateBalances(balances: Balance[]): void {
-    this.balancesSubject.next(balances);
-  }
-
-  private updateBalance(balance: Balance): void {
-    this.balanceSubject.next(balance);
-  }
-
-  private addNewBalance(newBalance: Balance): void {
-    const currentBalances = this.balancesSubject.getValue() || [];
-    this.balancesSubject.next([...currentBalances, newBalance]);
   }
 }

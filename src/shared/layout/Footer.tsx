@@ -1,4 +1,4 @@
-import { NstxLogo } from "@/shared";
+import { NstxLogo, Switch } from "@/shared";
 import Link from "next/link";
 import React from "react";
 import {
@@ -17,7 +17,7 @@ export const Footer = () => {
         <Link href="/">
           <NstxLogo className="w-10 h-10" />
         </Link>
-
+        <Switch />
         <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-4 md:mb-0">
           <a href="https://t.me/speltaria" target="_blank" rel="noopener noreferrer">
             <FaTelegramPlane size={20} />
