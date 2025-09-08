@@ -1,7 +1,7 @@
 "use client";
 
 import type { User } from "@/core";
-import { ConfirmDialog } from "@/shared";
+import { Dialog } from "@/shared";
 
 interface WithdrawConfirmProps {
   isOpen: boolean;
@@ -26,8 +26,9 @@ export const WithdrawConfirm = ({
   onCancel,
 }: WithdrawConfirmProps) => {
   return (
-    <ConfirmDialog
-      isOpen={isOpen}
+    <Dialog
+      open={isOpen}
+      setOpen={onCancel}
       title="Confirm Payment"
       fields={[
         { label: "Sender", value: `${user.firstName} ${user.lastName}` },
@@ -37,8 +38,8 @@ export const WithdrawConfirm = ({
         { label: "Message", value: values.message || "No message" },
       ]}
       balanceAfterPayment={balanceAfterPayment}
-      handleCancel={onCancel}
-      handleConfirm={onConfirm}
+      onCancel={onCancel}
+      onConfirm={onConfirm}
       cancelText="Go Back"
       confirmText="Send Payment"
     />

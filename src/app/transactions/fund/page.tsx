@@ -1,26 +1,42 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-
-import { currency } from "@/core";
+import { instance } from "@/core";
 import { ChooseFundCurrencyForm } from "@/feuture";
+import { Loading , ErrorАlert} from "@/shared";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function FundNstxPage() {
   const router = useRouter();
   const [search, setSearch] = useState("");
+  const [currencies, setCurrencies] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const filteredCurrencies = currency.filter((cur) =>
-    cur.toLowerCase().includes(search.toLowerCase()),
-  );
+  useEffect(() => {
+    const fetchCurrencies = async () => {
+      try {
+        const { data } = await instance.get("/binance/available-networks");
+        setCurrencies(data); 
+      } catch (err) {
+        setError("Failed to fetch currencies");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCurrencies();
+  }, []);
+
+  if (loading) return <Loading />;
+  if (error) return <ErrorАlert title="Error" description={error} />;
 
   return (
     <ChooseFundCurrencyForm
-      filteredCurrencies={filteredCurrencies}
+      currencies={currencies}
       search={search}
       setSearch={setSearch}
       router={router}
-      currency={currency}
     />
   );
 }

@@ -7,7 +7,7 @@ import * as Yup from "yup";
 
 import { Balance, currency, useAuth, useBalances, useToast } from "@/core";
 import { NewWallet } from "@/feuture";
-import { ConfirmDialog, Text } from "@/shared";
+import { Dialog, Text } from "@/shared";
 
 export default function NewWalletForm() {
   const { toast } = useToast();
@@ -68,8 +68,9 @@ const cardBalance: Balance = {
 };
 
   return isConfirmOpen ? (
-    <ConfirmDialog
-      isOpen={isConfirmOpen}
+    <Dialog
+      open={isConfirmOpen}
+      setOpen={setIsConfirmOpen} 
       title="Confirm Wallet Creation"
       fields={[
         { label: "Currency", value: pendingCurrency },
@@ -78,8 +79,10 @@ const cardBalance: Balance = {
           value: `${user?.firstName} ${user?.lastName}` || "Unknown",
         },
       ]}
-      handleCancel={handleCancel}
-      handleConfirm={handleConfirm}
+      onCancel={handleCancel}
+      onConfirm={handleConfirm}
+      confirmText="Confirm"
+      cancelText="Cancel"
     >
       <Text size="body1">
         You are about to create a new wallet for <b>{pendingCurrency}</b>. Please ensure that you
@@ -90,7 +93,7 @@ const cardBalance: Balance = {
           </Text>
         </Link>
       </Text>
-    </ConfirmDialog>
+    </Dialog>
   ) : (
     <NewWallet
       user={user}

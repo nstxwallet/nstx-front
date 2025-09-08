@@ -27,7 +27,7 @@ const buttonVariants = cva(
         light:
           "bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-300 dark:bg-zinc-800 dark:text-gray-200 dark:hover:bg-zinc-700 dark:focus:ring-gray-500",
         transparent:
-          "bg-transparent text-gray-800 hover:bg-gray-200 focus:ring-amber-500 dark:text-gray-200 dark:hover:bg-zinc-700 dark:focus:ring-amber-300",
+          "bg-transparent text-gray-800 hover:bg-gray-200 focus:ring-amber-500 dark:text-gray-200 dark:hover:bg-zinc-700 dark:focus:ring-amber-300 light:text-gray-800 light:hover:bg-gray-200 light:focus:ring-amber-500",
         danger:
           "bg-red-500 border border-red-500 text-white hover:bg-red-400 focus:ring-red-300 dark:bg-red-600 dark:border-red-600 dark:hover:bg-red-500 dark:focus:ring-red-400",
       },

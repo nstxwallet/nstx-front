@@ -9,7 +9,6 @@ export default function HomePage() {
   const { user } = useAuth();
   const { prices } = useBinance();
   const router = useRouter();
-
   const navigation = {
     handleLogin: () => router.push("/auth/login"),
     handleWallet: () => router.push("/transactions"),
@@ -25,8 +24,11 @@ export default function HomePage() {
     });
   };
 
+  const isAuth = user && Object.keys(user).length > 0 && user.email;
+
   return (
     <Home
+      isAuth={isAuth}
       prices={prices}
       user={user || ({} as User)}
       navigation={navigation}

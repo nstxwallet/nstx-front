@@ -1,7 +1,9 @@
 import * as React from "react";
 import { NumericFormat, type NumericFormatProps } from "react-number-format";
-import { useTheme } from "../layout";
-import { cn } from "../utils";
+
+import { useTheme } from "@/shared";
+import { cn } from "../../utils";
+import "./input.css";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
@@ -13,10 +15,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         ref={ref}
         type={type}
         className={cn(
-          "flex h-10 w-full rounded-lg border px-4 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 disabled:cursor-not-allowed disabled:opacity-50",
-          theme === "dark"
-            ? "border-gray-300 bg-white text-gray-800 focus:ring-amber-500 focus:border-amber-500 dark:border-zinc-600 dark:bg-zinc-900 dark:text-white dark:placeholder:text-gray-500 dark:focus:ring-amber-400 dark:focus:border-amber-400"
-            : "border-gray-200 bg-gray-100 text-gray-900 focus:ring-amber-300 focus:border-amber-300",
+          "InputBase",
+          theme === "dark" ? "InputDark" : "InputLight",
+          props.disabled && "InputDisabled",
           className,
         )}
         {...props}
@@ -41,7 +42,9 @@ const NumberInput = React.memo(
       return (
         <NumericFormat
           getInputRef={ref}
-          customInput={(props) => <Input {...props} className={theme} />}
+          customInput={(props) => (
+            <Input {...props} className={cn(theme === "dark" ? "InputDark" : "InputLight")} />
+          )}
           allowNegative={allowNegative}
           onValueChange={({ value }) =>
             onChange?.({ target: { value } } as React.ChangeEvent<HTMLInputElement>)

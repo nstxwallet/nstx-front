@@ -16,7 +16,7 @@ import {
 } from "react-icons/fi";
 
 interface TransactionDetailsProps {
-  transaction: Transaction;
+  transaction?: Transaction;
   isExpanded: boolean;
   toggleExpand: () => void;
   router: ReturnType<typeof useRouter>;
@@ -26,7 +26,7 @@ export const TransactionDetails = ({
   router,
   isExpanded,
   toggleExpand,
-}: TransactionDetailsProps) => {
+}: TransactionDetailsProps) => { 
   return (
     <Container size="1">
       <Paper>
@@ -41,31 +41,31 @@ export const TransactionDetails = ({
           <Text>Transaction Details</Text>
           <span
             className={`text-sm px-3 py-1 rounded-full font-medium ${
-              transaction.status === "completed"
+              transaction?.status === "completed"
                 ? "bg-green-100 text-green-600"
                 : "bg-amber-100 text-amber-600"
             }`}
           >
-            {transaction.status === "completed" ? "Success" : "Pending"}
+            {transaction?.status === "completed" ? "Success" : "Pending"}
           </span>
         </Row>
 
         <Text
           align={"center"}
           size="h3"
-          className={`mt-4 ${transaction.type === "transfer" ? "text-red-500" : "text-green-500"}`}
+          className={`mt-4 ${transaction?.type === "transfer" ? "text-red-500" : "text-green-500"}`}
         >
-          {transaction.type === "transfer" ? "-" : "+"}
-          {transaction.amount} {transaction.currency}
+          {transaction?.type === "transfer" ? "-" : "+"}
+          {transaction?.amount} {transaction?.currency}
         </Text>
 
         <Separator size="4" orientation="horizontal" />
         <Row justify="between">
-          <Text size="body1">Id: {transaction.id}</Text>
+          <Text size="body1">Id: {transaction?.id}</Text>
           <div className="flex items-center space-x-3">
             <button
               type="button"
-              onClick={(e) => handleCopy(e, transaction.id)}
+              onClick={(e) => handleCopy(e, transaction?.id)}
               className="text-gray-500 hover:text-gray-700"
             >
               <FiCopy className="w-5 h-5" />
@@ -89,23 +89,23 @@ export const TransactionDetails = ({
             <Text size="body1" color="gray">
               Type:
             </Text>
-            <Text size="body1">{transaction.type}</Text>
+            <Text size="body1">{transaction?.type}</Text>
             <Text size="body1" color="gray">
               Status:
             </Text>
-            <Text size="body1">{transaction.status}</Text>
+            <Text size="body1">{transaction?.status}</Text>
             <Text size="body1" color="gray">
               Currency:
             </Text>
-            <Text size="body1">{transaction.currency}</Text>
+            <Text size="body1">{transaction?.currency}</Text>
             <Text size="body1" color="gray">
               Created At:
             </Text>
-            <Text size="body1">{new Date(transaction.createdAt).toLocaleString()}</Text>
+            <Text size="body1">{new Date(transaction?.createdAt).toLocaleString()}</Text>
             <Text size="body1" color="gray">
               Updated At:
             </Text>
-            <Text size="body1">{new Date(transaction.updatedAt).toLocaleString()}</Text>
+            <Text size="body1">{new Date(transaction?.updatedAt).toLocaleString()}</Text>
           </Grid>
         )}
         <Grid columns={{ md: "2", sm: "1" }} gap="4" className="mt-6">

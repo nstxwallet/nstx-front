@@ -1,4 +1,4 @@
-import { NstxLogo, Switch } from "@/shared";
+
 import Link from "next/link";
 import React from "react";
 import {
@@ -9,6 +9,9 @@ import {
   FaTelegramPlane,
   FaTwitter,
 } from "react-icons/fa";
+
+import { Switch } from "@/shared";
+import { NstxLogo } from '@/public'
 
 export const Footer = () => {
   return (

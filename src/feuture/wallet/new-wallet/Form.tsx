@@ -24,14 +24,14 @@ export const NewWallet = ({
   user,
 }: NewWalletFormProps) => {
   return (
-    <Grid justify="center" rows="repeat(2, 200px)" width="auto">
+    <Grid justify="center" rows="repeat(2, 240px)" gap='6' width="auto">
       <Container size="4">
         <Text size="body" className="mb-4 text-center">
           You create {balance?.currency} balance, currently you have - 0.00 {balance?.currency} in
           your account.
         </Text>
-        <Grid columns={{ xs: "1", md: "2" }}>
-          <Row>
+        <Grid columns={{ xs: "1", md: "2" }} gap='6'>
+          <Row justify="center">
             <BalanceCard user={user} balance={balance} />
           </Row>
           <Paper>

@@ -1,8 +1,9 @@
 "use client";
 
 import { type VariantProps, cva } from "class-variance-authority";
-import { ElementRef, forwardRef } from "react";
-import { cn } from "../utils";
+import { ElementRef, forwardRef } from "react"; 
+
+import { cn } from "@/shared";
 
 const textVariants = cva("text-gray-900 dark:text-gray-100 font-normal text-left break-words", {
   variants: {

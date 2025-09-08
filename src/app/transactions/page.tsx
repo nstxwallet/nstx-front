@@ -5,13 +5,12 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 import { useAuth, useBalances, useTransactions } from "@/core";
-import { BalanceCardSlider, TransactionOptionsForm, TransactionsTable } from "@/feuture";
+import { BalanceCardSlider, TransactionOptionsForm, TransactionsTable } from "@/feuture"; 
 
 export default function TransactionsPage() {
   const { user } = useAuth();
   const { balances } = useBalances();
   const router = useRouter();
-
   const { transactions, isLoading } = useTransactions({ userId: user?.id });
 
   (!transactions || !balances) && console.log("Loading...");
@@ -20,7 +19,7 @@ export default function TransactionsPage() {
     router.push("/transactions/new-wallet");
   };
   return (
-    <Grid columns="1" gap="4">
+    <Grid columns="1" gap="4" className="p-6">
       <BalanceCardSlider
         handleCreateBalance={handleCreateBalance}
         router={router}

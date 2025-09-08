@@ -3,10 +3,10 @@
 import { Container } from "@radix-ui/themes";
 import { motion } from "framer-motion";
 import { FaExclamationTriangle } from "react-icons/fa";
-
+ 
+import { Text } from "../text"; 
+import { Paper } from "../paper";
 import { Button } from "../button";
-import { Text } from "../text";
-import { Paper } from "./Paper";
 
 export const ErrorАlert = ({ title, description }: { title: string; description: string }) => {
   return (

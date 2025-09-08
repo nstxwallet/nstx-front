@@ -1,52 +1,68 @@
-import { Container } from "@radix-ui/themes";
+import { Accordition, Button, Paper, Text } from "@/shared";
+import { Container, Grid } from "@radix-ui/themes";
 import { useRouter } from "next/navigation";
 
-import { Accordition, Button, Text } from "@/shared";
-
-interface FundOptionrops {
-  currency: string;
-  fundingTypes: string[];
-  router: ReturnType<typeof useRouter>;
+interface NetworkType {
+  id: string;
+  network: string;
+  depositAllEnable: boolean;
+  withdrawEnable: boolean;
+  isDefault: boolean;
 }
-export const FundOption = ({ currency, fundingTypes, router }: FundOptionrops) => {
+
+interface FundOptionProps {
+  currency: string;
+  networks: NetworkType[];
+}
+
+export const FundOption = ({ currency, networks }: FundOptionProps) => {
+  const router = useRouter();
+
+  const accordionItems = networks.map(
+    ({ network, depositAllEnable, withdrawEnable, isDefault }) => ({
+      value: network,
+      title: `${currency} / ${network}`,
+      content: (
+        <>
+          <Text size="body1">
+            Network: <span className="text-green-400">{network}</span>
+          </Text>
+          <Grid columns="1" gap="4">
+            <Text size="body1">
+              {withdrawEnable ? "✅ Enabled withdrawal" : "❌ Disabled withdrawal"}
+            </Text>
+            <Text size="body1">
+              {depositAllEnable ? "✅ Enabled deposit" : "❌ Disabled deposit"}
+            </Text>
+            {isDefault && (
+              <Text size="body1" className="text-green-400">
+                Default Network
+              </Text>
+            )}
+          </Grid>
+          <Button
+            variant="secondary"
+            fullWidth
+            onClick={() => router.push(`/transactions/fund/${currency}/${network}`)}
+          >
+            Fund {currency} with {network}
+          </Button>
+        </>
+      ),
+    }),
+  );
+
   return (
-    <Container size="1" className="p-4">
-      <Text size="h5" className="mb-4">
-        Fund {currency}
-      </Text>
-      <div className="flex flex-col items-start w-full">
-        {fundingTypes.map((type: string) => (
-          <div key={type} className="mb-4 w-full text-left">
-            <Accordition
-              items={[
-                {
-                  title: type,
-                  value: type,
-                  content: (
-                    <div>
-                      <Text size="h3" className="mb-4">
-                        {type}
-                      </Text>
-                      <Button
-                        fullWidth
-                        variant="transparent"
-                        onClick={() =>
-                          router.push(`transactions/fund/${currency}/${type.toLowerCase()}`)
-                        }
-                      >
-                        Fund
-                      </Button>
-                    </div>
-                  ),
-                },
-              ]}
-            />
-          </div>
-        ))}
-      </div>
-      <Button variant="transparent" fullWidth onClick={() => router.push("/transactions/fund")}>
-        Back to Choose Currency
-      </Button>
+    <Container size="3" className="justify-center p-6" align={"center"}>
+      <Grid columns={{ xs: "1" }} gap="4">
+        <Text size="h3">
+          {currency} {networks.length > 1 ? "Networks" : "Network"}
+        </Text>
+        <Accordition items={accordionItems} />
+        <Button variant="transparent" fullWidth onClick={() => router.push("/transactions/fund")}>
+          Back to Choose Currency
+        </Button>
+      </Grid>
     </Container>
   );
 };

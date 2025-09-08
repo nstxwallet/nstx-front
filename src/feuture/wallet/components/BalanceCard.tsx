@@ -3,7 +3,8 @@
 import type React from "react";
 
 import type { Balance, User } from "@/core";
-import { Button, NstxLogo, handleCopy } from "@/shared";
+import { Button, handleCopy } from "@/shared";
+import { NstxLogo } from "@/public";
 import { useState } from "react";
 
 interface UserCardProps { 
