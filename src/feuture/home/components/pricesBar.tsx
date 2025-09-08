@@ -1,7 +1,7 @@
 import React from "react";
 
 import type { Price } from "@/core";
-import { NstxLogo } from "@/shared";
+import { NstxLogo } from "@/public";
 
 interface PricesBarProps {
   prices?: Price[];

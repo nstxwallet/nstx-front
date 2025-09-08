@@ -4,6 +4,8 @@ import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons
 import * as Comp from "@radix-ui/react-select";
 import React from "react";
 
+import "./select.css";
+
 interface SelectProps {
   options: string[];
   placeholder?: string;

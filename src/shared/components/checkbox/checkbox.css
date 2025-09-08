@@ -1,0 +1,57 @@
+
+.CheckboxRoot {
+  display: flex;
+  height: 25px;
+  width: 25px;
+  appearance: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-r);
+  background-color: var(--trigger-bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.CheckboxRoot[data-state="checked"] {
+  background-color: var(--amber);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.ComponentLabel {
+  padding-left: 10px;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+.CheckboxRoot:focus-visible + .ComponentLabel {
+  color: var(--cyan);
+}
+
+.dark .CheckboxRoot {
+  background-color: var(--background-dark);
+  border-color: var(--border-dark);
+}
+
+.dark .CheckboxRoot:hover {
+  background-color: var(--white);
+  border-color: var(--cyan);
+}
+
+.dark .CheckboxRoot[data-state="checked"] {
+  background-color: var(--amber);
+  border-color: var(--amber);
+}
+.ComponentIndicator {
+  color: var(--text-light);
+  transition: color 0.2s ease;
+}
+
+.dark .ComponentIndicator {
+  color: var(--text-light);
+}
+
+
+.dark .ComponentLabel {
+  color: var(--text-dark);
+}

@@ -2,6 +2,8 @@ import * as Comp from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 import React from "react";
 
+import "./checkbox.css";
+
 interface CheckboxProps {
   label: string;
   id: string;

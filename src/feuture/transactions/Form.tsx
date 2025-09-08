@@ -7,7 +7,9 @@ import { AiFillFund } from "react-icons/ai";
 import { FaPaypal } from "react-icons/fa";
 
 import { TransactionOption } from "@/feuture";
-import { NstxLogo, Text } from "@/shared";
+import { Text } from "@/shared";
+import { NstxLogo } from "@/public";
+
 
 interface TransactionOptionsFormProps {
   router: ReturnType<typeof useRouter>;

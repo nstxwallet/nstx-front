@@ -1,7 +1,10 @@
+import React from "react";
+
 import * as Comp from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import classNames from "classnames";
-import React from "react";
+
+import "./accordition.css";
 
 type AccordionItem = {
   value: string;

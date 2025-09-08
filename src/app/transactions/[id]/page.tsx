@@ -18,14 +18,13 @@ export default function TransactionDetailsPage() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const transactionId = Array.isArray(id) ? id[0] : id; // Преобразование в строку
+    const transactionId = Array.isArray(id) ? id[0] : id;
 
     if (!transactionId) return;
-
     setIsLoading(true);
-
     const subscription = transactionService.fetchTransactionById(transactionId).subscribe({
       next: (data) => { 
+        setTransaction(data);
         setIsLoading(false);
       },
       error: (error) => {
@@ -43,15 +42,14 @@ export default function TransactionDetailsPage() {
     return <Loading />;
   }
 
-  if (!transaction) {
+  if (!transaction || !transaction?.id) {
     return (
-      <ErrorАlert
-        title="Transaction not found"
-        description="The transaction you are looking for does not exist"
-      />
+        <ErrorАlert
+            title="Transaction not found"
+            description="The transaction you are looking for does not exist"
+        />
     );
   }
-
   return (
     <TransactionDetails
       router={router}

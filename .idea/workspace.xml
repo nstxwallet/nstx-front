@@ -5,155 +5,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="afd2f9e7-872f-4164-94c4-28798315876d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/terms/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/transactions/fund/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/transactions/new-wallet/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/api/binance.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/hooks/useBinance.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/mock/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/mock/mock.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/services/binance/BinancePricesService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/public/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/components/dialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/components/dropdown.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/components/layout/401.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/components/layout/loading.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/components/tabs.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/utils/balance.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biome.json" beforeDir="false" afterPath="$PROJECT_DIR$/biome.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/forgot-password/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/forgot-password/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/reset-password/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/reset-password/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/sign-up/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wallet-api/src/module/binanceconector /binance-rest-spot.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wallet-api/src/module/binanceconector /binanceController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wallet-api/src/module/binanceconector /binanceModule.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wallet-api/src/module/binanceconector /index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/settings/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/settings/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/support/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/support/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/terms/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/terms/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/transactions/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transactions/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/transactions/create/nstx/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transactions/withdraw/nstx/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/transactions/create/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/transactions/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transactions/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/transactions/fund/[currency]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transactions/fund/[currency]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/transactions/fund/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transactions/fund/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/transactions/new-wallet/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transactions/new-wallet/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/transactions/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transactions/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/wallet/create/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/wallet/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/wallet/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/wallet/success/page.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/api/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/axios.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/balance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/balance.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/coinMarketCap.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/prices.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/settings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/settings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/transactions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/transactions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/hooks/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/hooks/useAuth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/useAuth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/hooks/useBalances.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/useBalances.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/hooks/useCoinMarketCap.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/hooks/useToast.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/useToast.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/hooks/useTransactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/useTransactions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/interfaces/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/interfaces/interfaces.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/mock/mock.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/mock/mock.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/services/auth/AuthService.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/auth/AuthService.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/balance/BalanceService.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/balance/BalanceService.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/provider/ServicesProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/provider/ServicesProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/provider/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/provider/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/provider/services.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/provider/services.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/settings/UserSettingsService.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/settings/UserSettingsService.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/toast/ToastProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/toast/ToastProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/toast/ToastService.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/toast/ToastService.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/transactions/TransactionService.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/transactions/TransactionService.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/home/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/home/components/Hero.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/home/components/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/home/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/login/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/login/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/password/forgot-password/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/password/forgot-password/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/password/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/password/reset-password/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/password/reset-password/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/settings/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/settings/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/sign-up/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/sign-up/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/support/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/support/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/terms/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/terms/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/components/ConfirmTransaction.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/components/PaymentOptionCard.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/components/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/nstx/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/create/nstx/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/transactions/transaction/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/components/BalanceCards.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/components/BankCard.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/components/BankCardSlider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/components/NoBalances.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/components/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/create/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/create/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/success/Form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feautures/wallet/success/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/assets/BinanceLogo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/binanceLogo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/assets/NstxLogo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/nstxLogo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/assets/PayPalLogo.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/assets/farming-bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/farming-bg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/assets/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/Accordition.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Accordition.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/Loading.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/NotAuthorized.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/Select.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Select.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/Typograhy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Typograhy.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/checkbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/checkbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/auth/login/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/auth/login/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/home/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/home/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/home/components/buySellTabs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/home/components/buySellTabs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/home/components/dropdownMobile.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/home/components/hero.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/home/components/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/home/components/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/home/components/pricesBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/home/components/pricesBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/transactions/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/transactions/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/transactions/components/transactionDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/transactions/components/transactionDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/transactions/fund/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/transactions/fund/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/transactions/fund/FundOptions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/transactions/fund/FundOptions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/transactions/fund/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/transactions/fund/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/transactions/withdraw/nstx/Confirm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/transactions/withdraw/nstx/Confirm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/wallet/components/BalanceCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/wallet/components/BalanceCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feuture/wallet/new-wallet/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feuture/wallet/new-wallet/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Accordition.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Button.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Input.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Select.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/checkbox.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/confirm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/dialog.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/dialog.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/dropdown.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Container.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/layout/Form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Grid.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Paper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/layout/Paper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Row.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/layout/Row.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Stack.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/layout/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/navbar/NavbarDropdownDesktop.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/navbar/NavbarDropdownMobile.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/navbar/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/table/CoinMarketCapBar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/table/TransactionsList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/table/TransactionsTable.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/table/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/401.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Col.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Paper.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/Row.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/error.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/layout/loading.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/switch.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/tabs.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/text.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/layout/ClientLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/layout/ClientLayout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/layout/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/layout/Footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/layout/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/layout/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/layout/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/layout/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/utils/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/utils/utils.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/utils/utils.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wallet-api/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../wallet-api/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wallet-api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../wallet-api/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wallet-api/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../wallet-api/pnpm-lock.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wallet-api/prisma/dbml/schema.dbml" beforeDir="false" afterPath="$PROJECT_DIR$/../wallet-api/prisma/dbml/schema.dbml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wallet-api/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/../wallet-api/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wallet-api/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../wallet-api/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wallet-api/src/module/binance/BinanceExchangeService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../wallet-api/src/module/binance/BinanceExchangeService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -169,6 +83,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="radix-components" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -199,7 +118,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;radix-components&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;deploy&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/spellta/nstx-front&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -284,6 +203,10 @@
       <workItem from="1741452818640" duration="1124000" />
       <workItem from="1741466970089" duration="600000" />
       <workItem from="1741478255854" duration="111000" />
+      <workItem from="1742017723579" duration="380000" />
+      <workItem from="1743693395821" duration="20000" />
+      <workItem from="1751389254487" duration="2292000" />
+      <workItem from="1757310355371" duration="1553000" />
     </task>
     <servers />
   </component>
@@ -305,7 +228,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/app/transactions/[id]/page.tsx</url>
-          <line>28</line>
+          <line>29</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

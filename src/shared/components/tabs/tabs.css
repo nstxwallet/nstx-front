@@ -1,0 +1,63 @@
+/* Tabs.css */
+.TabsRoot {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.TabsList {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.TabsTrigger {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.TabsTrigger:hover {
+  color: black;
+}
+
+.TabsTrigger[data-state="active"] {
+  border-color: #fbbf24;
+  color: #fbbf24;
+}
+
+.TabsContent {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.TabsContent:focus-visible {
+  outline: 2px solid #fbbf24;
+}
+
+@media (prefers-color-scheme: dark) {
+  .TabsList {
+    border-color: #374151;
+  }
+
+  .TabsTrigger {
+    color: #d1d5db;
+  }
+
+  .TabsTrigger:hover {
+    color: white;
+  }
+
+  .TabsTrigger[data-state="active"] {
+    color: #fbbf24;
+  }
+
+  .TabsContent {
+    color: white;
+  }
+}
+ 

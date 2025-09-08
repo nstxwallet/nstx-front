@@ -1,18 +1,22 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-
-import { fundingTypesMock } from "@/core";
-import { FundOption } from "@/feuture";
-
+import { FundOption, useFundingTypes } from "@/feuture";
+import {  ErrorАlert, Loading } from "@/shared"; 
 export default function FundCurrencyPage() {
   const router = useRouter();
   const params = useParams();
 
-  const currency = params?.currency as string;
-  const fundingTypes = fundingTypesMock[currency];
+  const asset = params?.currency as string;
+  const { networks, loading, error } = useFundingTypes(asset);
 
-  !fundingTypes && router.push("/transactions/fund");
+  if (loading) {
+    return <Loading />;
+  }
 
-  return <FundOption currency={currency} fundingTypes={fundingTypes} router={router} />;
+  if (error) {
+    return <ErrorАlert title="Error" description={error} />;
+  }
+
+  return <FundOption currency={asset} networks={networks} />;
 }

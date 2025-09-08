@@ -16,14 +16,12 @@ interface ClientLayoutProps {
 export default function ClientLayout({ children }: ClientLayoutProps) {
   const { user } = useAuth();
   const [isLoading] = useState(false);
-
   if (isLoading) {
     return <Loading />;
   }
   if (!user) {
     return <NotAuthorized />;
   }
-
   return (
     <ServicesProvider>
       <ThemeProvider>

@@ -1,7 +1,7 @@
 "use client";
 
 import "reflect-metadata";
-import { BehaviorSubject, type Observable, catchError, from, tap } from "rxjs";
+import { BehaviorSubject, from, Subscription, catchError, tap } from "rxjs";
 import { injectable } from "tsyringe";
 
 import {
@@ -36,80 +36,67 @@ export class AuthService {
   private userSubject = new BehaviorSubject<User | null>(null);
   public user = this.userSubject.asObservable();
 
-  private authSubject = new BehaviorSubject<LoginCredentials | null>(null);
-  private signupSubject = new BehaviorSubject<SignUpCredentials | null>(null);
+  private userSubscription: Subscription | null | undefined = null;
 
   constructor() {
     this.initUserSubscription();
-    if (typeof window !== "undefined") {
-      const token = sessionStorage.getItem("token");
-      if (token) {
-        this.tokenSubject.next({ accessToken: token });
-        this.getUser();
-      }
+    const token = typeof window !== "undefined" ? sessionStorage.getItem("token") : null;
+
+    if (token) {
+      this.setToken(token);
     }
   }
 
-  login(credentials: LoginCredentials) {
-    this.authSubject.next(credentials);
+  loginUser(credentials: LoginCredentials) {
+    return from(loginAPI(credentials)).pipe(
+      tap((token) => this.setToken(token)),
+      catchError((error) => {
+        console.error("Login failed:", error);
+        throw error;
+      }),
+    );
   }
 
-  signup(credentials: SignUpCredentials) {
-    this.signupSubject.next(credentials);
+  signupUser(credentials: SignUpCredentials) {
+    return from(registerAPI(credentials)).pipe(
+      tap(() => this.getUser()), // Получаем пользователя после регистрации
+      catchError((error) => {
+        console.error("Signup failed:", error);
+        throw error;
+      }),
+    );
   }
 
   logout() {
     return from(logoutAPI()).pipe(
-      tap(() => {
-        this.clearSession();
-      }),
+      tap(() => this.clearSession()),
       catchError((error) => {
+        console.error("Logout failed:", error);
         throw error;
       }),
     );
   }
 
-  getUser() {
-    return from(getUserAPI()).pipe(
-      tap((user) => {
-        this.userSubject.next(user);
-      }),
-      catchError((error) => {
-        throw error;
-      }),
-    );
-  }
+  private getUser() {
+    if (this.userSubject.value) return;
 
-  loginUser(credentials: LoginCredentials): Observable<void> {
-    return from(loginAPI(credentials)).pipe(
-      tap({
-        next: (token) => {
-          this.setToken(token);
-        },
-      }),
-      catchError((error) => {
-        throw error;
-      }),
-    );
-  }
-
-  signupUser(credentials: SignUpCredentials): Observable<void> {
-    return from(registerAPI(credentials)).pipe(
-      tap({
-        next: () => {
-          this.signup(credentials);
-        },
-      }),
-      catchError((error) => {
-        throw error;
-      }),
-    );
+    return from(getUserAPI())
+      .pipe(
+        tap((user) => this.userSubject.next(user)),
+        catchError((error) => {
+          this.userSubject.next(null);
+          console.error("Failed to fetch user:", error);
+          throw error;
+        }),
+      )
+      .subscribe();
   }
 
   private initUserSubscription() {
-    this.tokenSubject.subscribe(async (token) => {
+    this.tokenSubject.subscribe((token) => {
+      this.userSubscription?.unsubscribe(); // Отписываемся от старой подписки
       if (token) {
-        this.getUser().subscribe();
+        this.userSubscription = this.getUser();
       } else {
         this.userSubject.next(null);
       }
@@ -117,15 +104,19 @@ export class AuthService {
   }
 
   private setToken(accessToken: string) {
-    this.tokenSubject.next({ accessToken });
-    if (typeof window !== "undefined") {
-      sessionStorage.setItem("token", accessToken);
+    if (this.tokenSubject.value?.accessToken !== accessToken) {
+      this.tokenSubject.next({ accessToken });
+
+      if (typeof window !== "undefined" && sessionStorage.getItem("token") !== accessToken) {
+        sessionStorage.setItem("token", accessToken);
+      }
     }
   }
 
   private clearSession() {
     this.tokenSubject.next(null);
     this.userSubject.next(null);
+
     if (typeof window !== "undefined") {
       sessionStorage.removeItem("token");
     }

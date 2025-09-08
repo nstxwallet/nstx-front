@@ -39,7 +39,6 @@ export const BuySellTabs = ({
   if (!prices || !Array.isArray(prices)) {
     return <Loading />;
   }
-
   const selectedPrice = prices?.find((p) => p.symbol === selectedCurrency)?.price || 0;
   const convertedAmount = amountUSD ? Number.parseFloat(amountUSD) / selectedPrice : 0;
 

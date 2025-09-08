@@ -1,0 +1,25 @@
+.crypto-card {
+  transition: all 0.3s ease-in-out;
+}
+
+.crypto-card:hover {
+  transform: scale(1.05);
+}
+
+.networks-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.network-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.default-network {
+  background-color: rgba(0, 255, 0, 0.2);
+  font-weight: bold;
+}
